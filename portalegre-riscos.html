@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portalegre — Riscos em 3 esquemas</title>
+<style>
+:root{--bg:#f5f2ee;--card:#fff;--ink:#222;--muted:#666;--accent:#8b2e2e;--line:#e2d8d0;--ok:#2e6b34}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);margin:0;line-height:1.5}
+header{background:var(--accent);color:#fff;padding:2rem 1rem}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1rem}
+h1{margin:0 0 .3rem;font-size:1.9rem}
+header p{margin:.2rem 0;opacity:.92}
+.notice{background:#fff8e1;border:1px solid #e6d48a;padding:.8rem 1rem;border-radius:8px;margin:1.2rem 0;font-size:.9rem}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;margin:0 0 1.2rem}
+h2{color:var(--accent);margin:.2rem 0 .6rem;font-size:1.35rem}
+.badge{display:inline-block;font-size:.72rem;font-weight:bold;padding:.15rem .55rem;border-radius:20px;vertical-align:middle;margin-left:.4rem}
+.b-ok{background:#e4f2e4;color:var(--ok);border:1px solid #b9d8b9}
+.b-part{background:#fff3d6;color:#7a5f10;border:1px solid #e6d48a}
+.b-none{background:#eee;color:#777;border:1px solid #ccc}
+.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:.8rem 0}
+.kpi{background:#faf6f2;border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem;text-align:center}
+.kpi b{display:block;font-size:1.3rem;color:var(--accent);line-height:1.1}
+.kpi span{font-size:.78rem;color:#555}
+.photos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:.6rem 0}
+.photos figure{margin:0}
+.photos img{width:100%;height:180px;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}
+figcaption{font-size:.75rem;color:var(--muted);margin-top:.25rem}
+svg{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff;display:block;margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}
+th{background:#f6e9e6;color:var(--accent)}
+ul{margin:.4rem 0;padding-left:1.2rem}
+li{margin-bottom:.28rem}
+.omit{background:#f4f4f4;border-left:4px solid #999;padding:.55rem .8rem;border-radius:0 8px 8px 0;font-size:.85rem;margin:.5rem 0}
+footer{color:var(--muted);font-size:.82rem;padding:0 0 2.5rem}
+.src{font-size:.8rem;color:var(--muted)}
+@media(max-width:700px){.dash{grid-template-columns:1fr 1fr}.photos{grid-template-columns:1fr}.photos img{height:220px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Portalegre — Riscos em 3 esquemas</h1>
+<p>Seca · incêndio · cheia · vertente · sismo · erosão · calor — só o verificado.</p>
+<p>Base: Plano Municipal de Emergência de Portalegre (cm-portalegre.pt).</p>
+</div></header>
+<main class="wrap">
+<div class="notice"><strong>Como ler:</strong> <span class="badge b-ok">com fonte</span> afirma-se · <span class="badge b-part">parcial</span> só o que o PME diz · <span class="badge b-none">sem fonte</span> omite-se. Esquemas de estudo, sem precisão cadastral.</div>
+
+<section class="card">
+<h2>Em 30 segundos</h2>
+<div class="dash">
+<div class="kpi"><b>70%</b><span>montado ameaçado por calor + solo seco</span></div>
+<div class="kpi"><b>809 / 20 938 ha</b><span>incêndios 2008–25, pico jul–ago</span></div>
+<div class="kpi"><b>80 m³/s / 8,4 km²</b><span>Apartadura — torrencialidade</span></div>
+<div class="kpi"><b>79%</b><span>edifícios sem antissísmica suficiente</span></div>
+<div class="kpi"><b>80 M€</b><span>Territórios Resilientes (Fronteira, Marvão, Portalegre)</span></div>
+<div class="kpi"><b>4,1</b><span>sismo máx. recente Évora 1998</span></div>
+<div class="kpi"><b>8</b><span>concelhos Norte Alentejo em risco alto/muito alto</span></div>
+<div class="kpi"><b>—</b><span>erosão e zona sísmica: sem fonte, omite-se</span></div>
+</div>
+<div class="photos">
+<figure><img alt="Montado de sobro no Alentejo — seco no verão" src="https://commons.wikimedia.org/wiki/Special:FilePath/Quercus_suber.Alentejo04.jpg?width=800"><figcaption>Montado (sobro, Alentejo) — 70% ameaçado. Foto: Georges Jansoone, Wikimedia CC.</figcaption></figure>
+<figure><img alt="Cicatriz de incêndio em Oleiros vista por satélite Sentinel-2" src="https://commons.wikimedia.org/wiki/Special:FilePath/Forest_fire_in_Oleiros,_Portugal.jpg?width=800"><figcaption>Cicatriz de incêndio (Oleiros, Sentinel-2, UE Copernicus) — jul–ago crítico.</figcaption></figure>
+<figure><img alt="Barragem da Apartadura, Marvão — bacia de 8,4 km2" src="https://commons.wikimedia.org/wiki/Special:FilePath/Barragem_da_Apartadura_-_Portugal_(5331120803).jpg?width=800"><figcaption>Apartadura (Marvão) — 8,4 km² → 80 m³/s. Foto: Vitor Oliveira, CC BY-SA 2.0.</figcaption></figure>
+</div>
+</section>
+
+<section class="card">
+<h2>Esquema 1 — O ano do risco: quando aperta <span class="badge b-ok">com fonte</span></h2>
+<svg viewBox="0 0 800 260" role="img" aria-label="Linha do ano com seca, calor, incêndio e cheias">
+<rect x="0" y="0" width="800" height="260" fill="#fff"/>
+<!-- timeline base -->
+<line x1="60" y1="140" x2="740" y2="140" stroke="#999" stroke-width="3"/>
+<!-- months -->
+<g font-size="12" text-anchor="middle" fill="#555">
+<text x="60" y="165">jan</text><text x="122" y="165">fev</text><text x="184" y="165">mar</text><text x="246" y="165">abr</text><text x="308" y="165">mai</text><text x="370" y="165">jun</text><text x="432" y="165">jul</text><text x="494" y="165">ago</text><text x="556" y="165">set</text><text x="618" y="165">out</text><text x="680" y="165">nov</text><text x="740" y="165">dez</text>
+</g>
+<!-- cheias jan-fev -->
+<rect x="55" y="90" width="130" height="40" rx="8" fill="#1f5f8b" opacity="0.85"/>
+<text x="120" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">CHEIAS</text>
+<text x="120" y="122" text-anchor="middle" font-size="10" fill="#fff">jan–fev 2026: 80 M€</text>
+<!-- seca verao -->
+<rect x="300" y="90" width="260" height="40" rx="8" fill="#e8c07a"/>
+<text x="430" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#5a3a10">SECA + CALOR</text>
+<text x="430" y="122" text-anchor="middle" font-size="10" fill="#5a3a10">sul Tejo colapsa · 70% montado</text>
+<!-- incendio pico -->
+<rect x="415" y="40" width="100" height="40" rx="8" fill="#8b2e2e"/>
+<text x="465" y="57" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">FOGO</text>
+<text x="465" y="71" text-anchor="middle" font-size="10" fill="#fff">809 · 20 938 ha</text>
+<polygon points="465,80 458,90 472,90" fill="#8b2e2e"/>
+<text x="400" y="200" text-anchor="middle" font-size="12" fill="#333">inverno húmido recarrega (Tejo/Guadiana acima da média 24/25) →</text>
+<text x="400" y="218" text-anchor="middle" font-size="12" fill="#333">verão seco esvazia + Maciço Antigo débil (APA–REA)</text>
+<text x="400" y="240" text-anchor="middle" font-size="11" fill="#666">PME lista seca, incêndio (principal + PMDFCI), cheias e calor</text>
+</svg>
+<ul>
+<li><strong>Seca / calor:</strong> PME lista; Tejo+Guadiana acima da média em 24/25 mas sul do Tejo quebra no verão; Maciço Antigo débil (APA–REA); 70% montado em risco (Público/UEvora).</li>
+<li><strong>Incêndio:</strong> risco principal do PME; 8 concelhos em alto/muito alto — Gavião, Ponte de Sor, Alter do Chão, Crato, Portalegre, Marvão, Castelo de Vide, Nisa (PROT); 809 ocorrências, 20 938 ha 2008–25, jul–ago (ICNF/fogosagora.pt).</li>
+<li><strong>Cheia:</strong> PME lista; Apartadura 80 m³/s em 8,4 km² (CNPGB); Fronteira+Marvão+Portalegre nos 80 M€ Territórios Resilientes após jan–fev 2026 (Lusa).</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>Esquema 2 — Corte serra → vale: onde bate <span class="badge b-ok">com fonte</span> / <span class="badge b-part">parcial</span></h2>
+<svg viewBox="0 0 800 300" role="img" aria-label="Corte da serra ao vale com vertente, cheia e sismo">
+<rect x="0" y="0" width="800" height="300" fill="#fff"/>
+<!-- serra -->
+<polygon points="40,250 220,110 340,80 420,120 470,180 760,230 760,280 40,280" fill="#e8ddd2" stroke="#7a6a5f" stroke-width="2"/>
+<text x="300" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="#5a4a3a">SERRA S. MAMEDE &gt;800 m — taludes e escarpas</text>
+<!-- vertente -->
+<circle cx="260" cy="140" r="22" fill="#a07620" opacity="0.9"/><text x="260" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">!==</text>
+<text x="260" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#7a5f10">vertente *</text>
+<!-- chuva / cheia -->
+<g fill="#1f5f8b"><ellipse cx="480" cy="70" rx="18" ry="10"/><ellipse cx="510" cy="70" rx="22" ry="12"/><ellipse cx="545" cy="70" rx="18" ry="10"/></g>
+<g stroke="#1f5f8b" stroke-width="2"><line x1="490" y1="85" x2="480" y2="110"/><line x1="515" y1="85" x2="510" y2="115"/><line x1="540" y1="85" x2="545" y2="110"/></g>
+<text x="515" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f5f8b">8,4 km² → 80 m³/s</text>
+<!-- rio vale -->
+<rect x="470" y="230" width="290" height="22" rx="11" fill="#7fb3d5"/>
+<text x="615" y="246" text-anchor="middle" font-size="11" fill="#123">ribeira / vale — não ocupar (REN)</text>
+<!-- casas -->
+<g><rect x="580" y="190" width="46" height="40" fill="#c9b896" stroke="#7a6a4f"/><polygon points="580,190 603,175 626,190" fill="#8b2e2e"/><text x="603" y="215" text-anchor="middle" font-size="9" fill="#4a3a28">adobe</text></g>
+<g><rect x="650" y="190" width="46" height="40" fill="#d8cfc0" stroke="#666"/><polygon points="650,190 673,175 696,190" fill="#555"/><text x="673" y="215" text-anchor="middle" font-size="9" fill="#333">alvenaria</text></g>
+<text x="638" y="270" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b2e2e">79% insuficiente (sismo)</text>
+<text x="140" y="270" font-size="11" fill="#555">peneplanície 300–400 m</text>
+</svg>
+<ul>
+<li><strong>Vertente</strong> <span class="badge b-part">parcial</span> — PME: aluimentos + derrocadas em taludes/escarpas. Sem inventário nem carta distrital pública (só registo nacional DGT).</li>
+<li><strong>Cheia torrencial</strong> — Apartadura prova a violência das micro-bacias serranas.</li>
+<li><strong>Sismo</strong> <span class="badge b-part">parcial</span> — PME lista; sismicidade difusa, máx. 4,1 Évora 1998 (POSEUR 2014); 79% sem antissísmica, adobe + alvenaria não armada mais vulneráveis (Springer 2024). Zona RSA/EC8: omite-se.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>Esquema 3 — A casa alentejana aguenta? <span class="badge b-part">parcial</span></h2>
+<svg viewBox="0 0 800 210" role="img" aria-label="Barra 79 por cento vulnerável e materiais">
+<rect x="0" y="0" width="800" height="210" fill="#fff"/>
+<text x="400" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">79% dos edifícios (Portalegre + Beja) — disposições insuficientes</text>
+<rect x="80" y="50" width="640" height="34" rx="8" fill="#e5d5cf"/>
+<rect x="80" y="50" width="506" height="34" rx="8" fill="#8b2e2e"/>
+<text x="400" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">79% vulnerável — adobe + alvenaria não armada</text>
+<g font-size="12" text-anchor="middle">
+<rect x="80" y="110" width="200" height="60" rx="8" fill="#f6e9e6" stroke="#8b2e2e"/><text x="180" y="132" font-weight="bold" fill="#8b2e2e">NÃO</text><text x="180" y="150" fill="#555">parede delgada</text><text x="180" y="163" fill="#555">vão grande a sul</text>
+<rect x="300" y="110" width="200" height="60" rx="8" fill="#e4f2e4" stroke="#2e6b34"/><text x="400" y="132" font-weight="bold" fill="#2e6b34">SIM</text><text x="400" y="150" fill="#555">travar / cintar</text><text x="400" y="163" fill="#555">manter fora da cheia</text>
+<rect x="520" y="110" width="200" height="60" rx="8" fill="#fff3d6" stroke="#a07620"/><text x="620" y="132" font-weight="bold" fill="#7a5f10">FOGO</text><text x="620" y="150" fill="#555">faixa PMDFCI</text><text x="620" y="163" fill="#555">sem esteval colado</text>
+</g>
+</svg>
+<div class="omit"><strong>Omissões assumidas:</strong> letra de zona sísmica (RSA/EC8) · carta e valores de erosão distrital · recordes de temperatura (IPMA). Erosão só indireta: montado trava desertificação (Pró-Montado) + “solo descoberto” como indicador IFAP.</div>
+<p class="src">Fontes: PME Portalegre · APA–REA · Público/UEvora · PROT/PDM Grândola · ICNF/fogosagora.pt · CNPGB · Lusa 80 M€ · DGT · POSEUR 2014 · Springer 2024 · IFAP/Agroportal.</p>
+</section>
+
+<section class="card">
+<h2>Tabela — afirma / omite</h2>
+<table>
+<tr><th>Risco</th><th>Afirma</th><th>Omite</th></tr>
+<tr><td>Seca <span class="badge b-ok">fonte</span></td><td>PME + APA–REA + 70% montado</td><td>—</td></tr>
+<tr><td>Incêndio <span class="badge b-ok">fonte</span></td><td>principal + 8 concelhos + 809 / 20 938 ha jul–ago</td><td>—</td></tr>
+<tr><td>Cheia <span class="badge b-ok">fonte</span></td><td>Apartadura 80/8,4 + 80 M€</td><td>—</td></tr>
+<tr><td>Vertente <span class="badge b-part">parcial</span></td><td>aluimentos e derrocadas</td><td>carta e inventário</td></tr>
+<tr><td>Sismo <span class="badge b-part">parcial</span></td><td>4,1 Évora 98 + 79% adobe</td><td>zona RSA/EC8</td></tr>
+<tr><td>Erosão <span class="badge b-none">sem fonte</span></td><td>só montado + solo descoberto</td><td>valores/mapa</td></tr>
+<tr><td>Calor <span class="badge b-ok">fonte</span></td><td>PME + ameaça ao montado</td><td>recordes IPMA</td></tr>
+</table>
+</section>
+
+</main>
+<footer><div class="wrap"><p>Fotos: Wikimedia Commons (ver legendas) — uso com crédito. Esquemas próprios de estudo. Compilado 2026-10-02. Risco a risco, sem inventar.</p></div></footer>
+</body>
+</html>

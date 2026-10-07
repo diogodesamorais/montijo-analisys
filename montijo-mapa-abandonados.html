@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montijo — Mapa satélite dos abandonados ribeirinhos</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--accent:#1f4d5b}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#eef2f5;color:#222}
+header{background:var(--accent);color:#fff;padding:1.4rem 1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1rem}
+#map{height:62vh;min-height:420px;border-top:4px solid var(--accent);border-bottom:4px solid var(--accent)}
+section.card{background:#fff;border:1px solid #d5dde3;border-radius:12px;padding:1rem 1.2rem;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{border:1px solid #d5dde3;padding:.4rem .5rem;text-align:left;vertical-align:top}
+th{background:#e9f1f6;color:var(--accent)}
+.src{font-size:.8rem;color:#666}.tag{font-size:.7rem;font-weight:bold;padding:.1rem .45rem;border-radius:10px;background:#eef;color:#345;border:1px solid #ccd}
+.tag.aprox{background:#fff3d6;border-color:#e6d48a;color:#7a5f10}
+footer{color:#666;font-size:.82rem;padding:0 0 2rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1 style="margin:0">Montijo — Abandonados sobre satélite</h1>
+<p style="margin:.3rem 0">Esri World Imagery + OpenStreetMap · 7 pontos da pesquisa · <b>verificar no local</b></p>
+</div></div></header>
+<div id="map"></div>
+<main class="wrap">
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">Como usar em projeto</h2>
+<p>Zoom até 1:2 000 sobre cada nave. Pontos <span class="tag">Nominatim/CM</span> têm coordenada verificada; <span class="tag aprox">aprox.</span> são estimativas ao longo do ex-ramal/margem — fixar com GPS e certidão.</p>
+<table>
+<tr><th>#</th><th>Edifício</th><th>Coord.</th><th>Base</th></tr>
+<tr><td><b>1</b></td><td>Cais dos Vapores (terminal 467+467+80 m², APL→CM 2025)</td><td>38.70302, -8.97687</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>2</b></td><td>Moinho de Maré do Cais (mus. 2005)</td><td>38.70356, -8.97955</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>3</b></td><td>Núcleo Bela Vista (primeiros armazéns Mundet 1923)</td><td>38.70080, -8.96927</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>4</b></td><td>Faixa SAPAC / ex-ramal (naves em banda)</td><td>38.70100, -8.96650</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>5</b></td><td>Parcelas Rua José Mundet (~15 000 + 7 000 m² em ruína)</td><td>38.70139, -8.96380</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>6</b></td><td>Forno de cal + armazéns ribeirinhos (ruína)</td><td>38.69950, -8.96800</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>7</b></td><td>Fábrica completa a leste + Moinho da Lançada (1368)</td><td>38.68875, -8.95138</td><td><span class="tag">Nominatim/CM</span></td></tr>
+</table>
+<p class="src">Satélite: Esri World Imagery (Maxar/GeoEye). Geocodificação: Nominatim OSM 07/10/2026. Limites PEZOR/ARU são faixas indicativas — usar PDF CM Montijo para delimitação oficial.</p>
+</section>
+</main>
+<footer><div class="wrap"><p>Gerado para projeto de arquitetura 2026-10-07. Confirmar propriedade, contaminação e cotas de maré/cheia no terreno.</p></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const pts = [
+{id:1,n:"Cais dos Vapores",d:"Terminal 467+467+80 m². Programa: náutica/lúdico/restauração.",lat:38.703022,lon:-8.9768734},
+{id:2,n:"Moinho do Cais",d:"Maré, museu 2005. Energia do sítio: maré–caldeira–engenho.",lat:38.703562,lon:-8.979547},
+{id:3,n:"Bela Vista / Mundet 1923",d:"Primeiros armazéns. Naves p/ ateliers/serviços.",lat:38.7008029,lon:-8.96927},
+{id:4,n:"Faixa SAPAC / ex-ramal (aprox.)",d:"Naves em banda ao longo da ex-ferrovia. Verificar.",lat:38.701,lon:-8.9665},
+{id:5,n:"Rua José Mundet (parcelas)",d:"~15 000 + 7 000 m², ruína parcial. Verificar existência.",lat:38.7013905,lon:-8.9638016},
+{id:6,n:"Forno de cal (aprox.)",d:"Ruína arqueológica ribeirinha. Verificar.",lat:38.6995,lon:-8.968},
+{id:7,n:"Leste + Lançada 1368",d:"Fábrica completa (verificar) e moinho mais antigo margem sul.",lat:38.6887492,lon:-8.9513752}];
+const map = L.map('map').setView([38.6995,-8.967], 14);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri World Imagery'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}').addTo(map);
+pts.forEach(p=>{
+ L.marker([p.lat,p.lon]).addTo(map).bindPopup("<b>"+p.id+" · "+p.n+"</b><br>"+p.d+"<br><span style='color:#666'>"+p.lat+", "+p.lon+"</span>");
+});
+L.polyline(pts.slice(0,6).map(p=>[p.lat,p.lon]),{color:'#ffd54a',weight:3,dashArray:'8 6'}).addTo(map).bindTooltip("Faixa rio–ferrovia–fábrica");
+</script>
+</body>
+</html>

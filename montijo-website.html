@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montijo · Frente Ribeirinha — Website do projeto</title>
+<style>
+:root{--accent:#1f4d5b;--bg:#f2f5f7;--line:#d5dde3}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#222;line-height:1.55}
+header.hero{background:linear-gradient(180deg,#1f4d5b,#2e7a8c);color:#fff;padding:3rem 1rem 2rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1rem}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:1rem;flex-wrap:wrap;padding:.6rem 1rem}
+nav a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem}
+section.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.2rem;margin:1.2rem 0}
+h2{color:var(--accent);margin:.2rem 0 .6rem}
+table{border-collapse:collapse;width:100%;font-size:.87rem}
+th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#e9f1f6;color:var(--accent)}
+img.sat{width:100%;border-radius:12px;border:1px solid var(--line)}
+iframe{width:100%;height:60vh;min-height:420px;border:1px solid var(--line);border-radius:12px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:.55rem 1rem;border-radius:8px;text-decoration:none;margin:.3rem .3rem 0 0}
+footer{color:#666;font-size:.85rem;padding:0 0 2.5rem}
+.src{font-size:.82rem;color:#666}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p style="margin:0;opacity:.85">Montijo · Projeto de arquitetura</p>
+<h1 style="margin:.3rem 0">Frente ribeirinha — tudo num sítio</h1>
+<p style="margin:.3rem 0">Abandonados + mudanças de programa + satélite + mapa + pesquisa + PPTX.</p>
+<p><a class="btn" href="montijo-mapa-abandonados.html">Mapa interativo</a><a class="btn" style="background:#fff;color:var(--accent)" href="montijo-frente-ribeirinha.pptx">PPTX</a><a class="btn" style="background:#fff;color:var(--accent)" href="montijo-frente-ribeirinha.html">Pesquisa</a></p>
+</div></header>
+<nav><div class="wrap">
+<a href="#abandonados">Abandonados</a><a href="#mudaram">Mudaram de programa</a><a href="#satelite">Satélite</a><a href="#mapa">Mapa</a><a href="#levantar">Levantar</a>
+</div></nav>
+<main class="wrap">
+<section class="card" id="abandonados"><h2>1 · Edifícios abandonados</h2>
+<table>
+<tr><th>#</th><th>Edifício</th><th>Coord.</th><th>Estado</th></tr>
+<tr><td><b>1</b></td><td>Mundet Bela Vista / Nascentes (1923–88)</td><td>38.70080, -8.96927</td><td>Naves completas por fora; coberturas/interiores a refazer</td></tr>
+<tr><td><b>2</b></td><td>SAPAC / ex-ramal em banda</td><td>38.70100, -8.96650 *</td><td>Boas para dividir em arrendatários; fixar GPS/donos</td></tr>
+<tr><td><b>3</b></td><td>Rua José Mundet (parcelas)</td><td>38.70139, -8.96380</td><td>Ruína parcial; confirmar existência</td></tr>
+<tr><td><b>4</b></td><td>Armazéns + forno de cal</td><td>38.69950, -8.96800 *</td><td>Ruína arqueológica; consolidar</td></tr>
+<tr><td><b>5</b></td><td>Fábrica completa a leste</td><td>zona nascente</td><td>Grande devoluta 2012; localizar e medir</td></tr>
+</table>
+<p class="src">* aproximado — fixar no terreno.</p></section>
+<section class="card" id="mudaram"><h2>2 · Mudaram de programa (referências)</h2>
+<table>
+<tr><th>Antes → Depois</th><th>Datas</th><th>Lição</th></tr>
+<tr><td><b>Moinho de Maré do Cais → museu</b> (38.70356, -8.97955)</td><td>ref. 1646 · municipal 1995 · museu 2005</td><td>Maré–caldeira–engenho como energia do sítio</td></tr>
+<tr><td><b>Moinho de Vento do Esteval → museu funcional</b></td><td>1826 · reaberto 2000</td><td>Torre pedra + capelo a sarilho; porta SE contra vento</td></tr>
+<tr><td><b>Cais dos Vapores → lazer/náutica/restauração</b> (38.70302, -8.97687)</td><td>ponte-cais 1852 · edifício 1994 · protocolo 2025 (467+467+80 m²)</td><td>Âncora do projeto; articular programa com ele</td></tr>
+<tr><td><b>Quinta das Nascentes → Casa da Música Jorge Peixinho</b></td><td>ação de regeneração CM</td><td>Cultura como âncora junto ao corredor verde</td></tr>
+</table></section>
+<section class="card" id="satelite"><h2>3 · Gráfico satélite</h2>
+<img class="sat" src="montijo-satelite-edificios.png" alt="Satélite Esri com 7 edifícios numerados da frente ribeirinha do Montijo">
+<p class="src">Esri World Imagery · Nominatim OSM 07/10/2026 · * fixar com GPS · 2560 px pronto para Canva.</p></section>
+<section class="card" id="mapa"><h2>4 · Mapa interativo</h2>
+<iframe src="montijo-mapa-abandonados.html" title="Mapa satélite interativo"></iframe></section>
+<section class="card" id="levantar"><h2>5 · O que levantar em cada um</h2>
+<ul>
+<li>Matriz: área, vão, pé-direito, estrutura, cobertura, humidade, acesso, dono.</li>
+<li>Riscos: amianto, solos, caves em cota de maré, estabilidade.</li>
+<li>Regra: recuperar e dividir antes de demolir.</li>
+</ul>
+<p class="src">Fontes: CM Montijo (ARU/ORU, património, PEZOR) · Diário do Distrito 12/06/2025 · O Setubalense 28/10/2022 · ULusófona 2014 · FA-UL 2012. Confirmar no terreno.</p></section>
+</main>
+<footer><div class="wrap"><p>Website único 2026-10-07 · pesquisa + mapa + satélite + PPTX.</p></div></footer>
+</body>
+</html>
