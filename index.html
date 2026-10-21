@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montijo Ribeirinha — Website de Projeto | Abandonados + Mudanças de Função</title>
+<meta name="description" content="Pesquisa para projeto de arquitetura: 8 edifícios abandonados e 8 mudanças de função na frente ribeirinha do Montijo, mapeados sobre satélite.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--azul:#1f4d5b;--cast:#582f1b;--bg:#eef2f5;--line:#d5dde3;--card:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#222;line-height:1.55}
+header.hero{background:linear-gradient(160deg,#1f4d5b 0%,#2e7a8c 60%,#582f1b 130%);color:#fff;padding:3rem 1rem 2.2rem}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1rem}
+.hero h1{margin:.3rem 0;font-size:2rem}
+.hero p.sub{opacity:.92;max-width:60ch}
+.btn{display:inline-block;background:#fff;color:var(--azul);padding:.55rem 1rem;border-radius:8px;text-decoration:none;font-weight:700;margin:.4rem .4rem 0 0;font-size:.9rem}
+.btn.ghost{background:transparent;color:#fff;border:2px solid #fff}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:20}
+nav .wrap{display:flex;gap:1.1rem;flex-wrap:wrap;padding:.6rem 1rem}
+nav a{color:var(--azul);text-decoration:none;font-weight:700;font-size:.88rem}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem;margin:1.2rem 0}
+h2{margin:.2rem 0 .6rem;font-size:1.35rem}
+h2.azul{color:var(--azul)}h2.cast{color:var(--cast)}
+.map{height:58vh;min-height:400px;border-radius:12px;border:1px solid var(--line);z-index:1}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin:.6rem 0}
+th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#e9f1f6;color:var(--azul)}
+table.cast th{background:#f3e8d8;color:var(--cast)}
+.tag{font-size:.7rem;font-weight:700;padding:.1rem .45rem;border-radius:10px;background:#eef;color:#345;border:1px solid #ccd;white-space:nowrap}
+.tag.aprox{background:#fff3d6;border-color:#e6d48a;color:#7a5f10}
+.src{font-size:.8rem;color:#666}
+.notice{background:#fff8e1;border:1px solid #e6d48a;padding:.9rem 1rem;border-radius:10px;margin:1rem 0;font-size:.92rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:800px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.5rem}}
+img.sat{width:100%;border-radius:12px;border:1px solid var(--line)}
+footer{color:#666;font-size:.84rem;padding:0 0 3rem}
+ul.tight li{margin-bottom:.35rem}
+.kpi{display:flex;gap:.8rem;flex-wrap:wrap;margin:.8rem 0}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.6rem .9rem;font-size:.85rem}
+.kpi b{font-size:1.2rem;display:block}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p style="margin:0;opacity:.85">Montijo · Frente ribeirinha · Projeto de arquitetura 2026</p>
+<h1>Do abandono à reconversão — 16 edifícios sobre satélite</h1>
+<p class="sub">8 abandonados numerados (1–8) + 8 que mudaram de função (M1–M8) na mesma faixa rio–ferrovia–fábrica. Mapas interativos Esri, fichas de terreno e lições de projeto.</p>
+<p><a class="btn" href="#abandonados">Ver abandonados</a><a class="btn" href="#mudanca">Ver mudanças</a><a class="btn ghost" href="montijo-ribeirinha-abandonados-satelite.html">Ficha abandonados</a><a class="btn ghost" href="montijo-ribeirinha-mudanca-funcao.html">Ficha mudanças</a></p>
+<div class="kpi">
+<div><b>8</b>abandonados 1–8</div>
+<div><b>8</b>mudanças M1–M8</div>
+<div><b>2</b>mapas satélite Esri</div>
+<div><b>1</b>faixa: rio–ramal–fábrica</div>
+</div>
+</div></header>
+<nav><div class="wrap">
+<a href="#abandonados">Abandonados</a><a href="#mudanca">Mudanças</a><a href="#satelite">Satélite</a><a href="#cronologia">Cronologia</a><a href="#projeto">Projeto</a><a href="#fontes">Fontes</a>
+</div></nav>
+<main class="wrap">
+<div class="notice"><strong>Como usar este site no projeto:</strong> escolhe 1 quarteirão-piloto entre os nºs 2–5 (Mundet/SAPAC/José Mundet), ancora no M5 Cais e no M1 Moinho, e cose com a M7 Ecopista. Tudo o que está marcado <span class="tag aprox">aprox.</span> tem de ser fixado com GPS, certidão e conversa CM/APL antes de desenhar.</div>
+
+<section class="card" id="abandonados">
+<h2 class="azul">1 · Abandonados — mapa + tabela (1–8)</h2>
+<div id="mapAb" class="map"></div>
+<table>
+<tr><th>#</th><th>Edifício</th><th>Estado provável</th><th>Coord.</th><th>Base</th></tr>
+<tr><td><b>1</b></td><td><b>Cais dos Vapores</b> — terminal 467+467+80 m²</td><td>Devoluto em transição; futuro lazer/náutica/restauração</td><td>38.70302, -8.97687</td><td><span class="tag">CM</span></td></tr>
+<tr><td><b>2</b></td><td><b>Mundet Bela Vista 1923</b> — primeiros armazéns</td><td>Naves completas por fora; coberturas/interiores a refazer</td><td>38.70080, -8.96927</td><td><span class="tag">CM</span></td></tr>
+<tr><td><b>3</b></td><td><b>Chaminé + Caldeiras Mundet</b></td><td>Chaminé em recuperação; Caldeiras com exposição 2025, resto devoluto</td><td>38.70050, -8.96980</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>4</b></td><td><b>SAPAC / ex-ramal</b> — naves em banda</td><td>Ocupação fragmentada; confirmar troço a troço</td><td>38.70100, -8.96650</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>5</b></td><td><b>Rua José Mundet</b> — parcelas em ruína</td><td>Ruína parcial ~15 000 + 7 000 m²; confirmar cadastro</td><td>38.70139, -8.96380</td><td><span class="tag">CM</span></td></tr>
+<tr><td><b>6</b></td><td><b>Forno de cal ribeirinho</b></td><td>Ruína arqueológica em cota baixa; risco maré</td><td>38.69950, -8.96800</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>7</b></td><td><b>Antiga Estação + ramal 1908–89</b></td><td>Parcialmente descaracterizada; troços em ecopista</td><td>38.70230, -8.97180</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>8</b></td><td><b>Leste + Moinho Lançada 1368</b></td><td>Fábrica a confirmar + moinho mais antigo</td><td>38.68875, -8.95138</td><td><span class="tag">CM</span></td></tr>
+</table>
+<p class="src">Detalhe: <a href="montijo-ribeirinha-abandonados-satelite.html">ficha completa dos abandonados</a>.</p>
+</section>
+
+<section class="card" id="mudanca">
+<h2 class="cast">2 · Mudaram de função — mapa + tabela (M1–M8)</h2>
+<div id="mapMu" class="map"></div>
+<table class="cast">
+<tr><th>#</th><th>Antes → Agora</th><th>Datas-chave</th><th>Coord.</th></tr>
+<tr><td><b>M1</b></td><td><b>Moinho do Cais → museu</b></td><td>ref. 1646 · municipal 1995 · museu 2005–06</td><td>38.70356, -8.97955</td></tr>
+<tr><td><b>M2</b></td><td><b>Casa Mora → museu</b> (Av. Pescadores 52)</td><td>casa ~1875 · biblioteca 80s · museu 1993</td><td>38.70667, -8.97617</td></tr>
+<tr><td><b>M3</b></td><td><b>Mercado → reabilitado</b></td><td>programa municipal de reabilitação</td><td>38.70621, -8.97624</td></tr>
+<tr><td><b>M4</b></td><td><b>Touros → Cinema-Teatro Joaquim d'Almeida</b></td><td>inaug. 06/11/1957</td><td>38.70588, -8.97037</td></tr>
+<tr><td><b>M5</b></td><td><b>Cais → lazer/náutica/restauração</b> (em curso)</td><td>protocolo APL→CM 11/06/2025 · unanimidade mar 2026</td><td>38.70302, -8.97687</td></tr>
+<tr><td><b>M6</b></td><td><b>Armazéns R. Miguel Pais → passeio</b></td><td>requalificação 2006–07</td><td>38.70381, -8.97563</td></tr>
+<tr><td><b>M7</b></td><td><b>Ramal 1908–89 → Ecopista</b></td><td>Montijo Ciclável</td><td>38.70230, -8.97180 *</td></tr>
+<tr><td><b>M8</b></td><td><b>Caldeiras Mundet → exposição</b></td><td>“A cortiça…” desde 2025</td><td>38.70050, -8.96980 *</td></tr>
+</table>
+<p class="src">* aprox. · Detalhe: <a href="montijo-ribeirinha-mudanca-funcao.html">ficha das mudanças</a> com lições de desenho por caso.</p>
+</section>
+
+<section class="card" id="satelite">
+<h2 class="azul">3 · Satélite estático — os mesmos números, prontos a imprimir</h2>
+<div class="grid2">
+<div><img class="sat" src="montijo-satelite-abandonados-v2.png" alt="Satélite Esri com 8 abandonados numerados"><p class="src"><b>1–8 abandonados.</b> 2304×2198 px. Amarelo = faixa rio–ferrovia–fábrica.</p></div>
+<div><img class="sat" src="montijo-satelite-mudanca-funcao.png" alt="Satélite Esri com 8 mudanças de função"><p class="src"><b>M1–M8 mudanças.</b> 1792×1430 px. Cruzar com o mapa interativo.</p></div>
+</div>
+<p class="src">Fonte imagem: Esri World Imagery (Maxar/GeoEye), z16, via make_ribeirinha_v2.py 07/10/2026.</p>
+</section>
+
+<section class="card" id="cronologia">
+<h2 class="azul">4 · Cronologia — por que há tanto devoluto</h2>
+<ul class="tight">
+<li><b>Até 1930 Aldeia Galega:</b> cais, sal, vinho, pesca, vapor Lisboa, ~20 matadouros. Rio = economia.</li>
+<li><b>1908 ramal:</b> cortiça + carnes junto a rio e estação. Anos 70: ~274 fábricas, 5 358 operários.</li>
+<li><b>1986–93:</b> UE + normas fecham carnes; plástico fecha cortiça (Mundet 1988/93). Ramal encerra 1989.</li>
+<li><b>2006–07:</b> passeio Moinho–Cais sem tratar o miolo industrial.</li>
+<li><b>2025–26:</b> Cais para o município; revitalização aprovada. Janela de projeto.</li>
+</ul>
+</section>
+
+<section class="card" id="projeto">
+<h2 class="cast">5 · Estratégia de projeto — 5 movimentos</h2>
+<ul class="tight">
+<li><b>1. Levantar antes de desenhar:</b> área, vão, pé-direito, estrutura, cobertura, humidade, dono, cota.</li>
+<li><b>2. Não demolir por defeito:</b> dividir naves em arrendatários menores (ateliers/serviços/habitação pontual).</li>
+<li><b>3. Coser rio–ferrovia–cidade:</b> ex-ramal como alameda/ciclável; R/C permeável à maré, programa em cima.</li>
+<li><b>4. Energia do sítio:</b> inércia + ventilação cruzada/noturna + sombra S/SO + cisterna; despistar amianto.</li>
+<li><b>5. Fasear pelo Cais:</b> âncora náutica/restauração e estender a nascente por quarteirões-piloto.</li>
+</ul>
+</section>
+
+<section class="card" id="fontes">
+<h2 class="azul">6 · Fontes + próximos passos</h2>
+<p class="src">CM Montijo (Moinho do Cais; Casa Mora; Cinema-Teatro; ARU/ORU; PEZOR; projetos Montijo Ciclável, Rua Miguel Pais–Cais, Mercado, Casa da Música); protocolo APL–CM Cais 11/06/2025; ADN/SAPO/Rostos/O Cidadão 2025; AMRS Rede Património (Caldeiras 2025); tese ULisboa “Requalificação da Frente Ribeirinha” (Folgado); ULusófona 2014; FA-UL 2012; Nominatim OSM 07/10/2026.</p>
+<ul class="tight">
+<li>Pedir certidões + PDFs ARU/PEZOR/PDM na CM; falar com APL sobre o Cais.</li>
+<li>Ir ao terreno com GPS: fotografar, medir, marcar humidades e cotas, confirmar donos.</li>
+<li>Pesquisa anterior: <a href="montijo-frente-ribeirinha.html">frente ribeirinha</a> · <a href="montijo-mapa-abandonados.html">mapa 7 pontos</a> · <a href="montijo-frente-ribeirinha.pptx">PPTX</a>.</li>
+</ul>
+</section>
+</main>
+<footer><div class="wrap"><p>Website de pesquisa 07/10/2026 · Esri + OSM · “aprox.” = estimativa a confirmar no local · Base documental, não levantamento certificado.</p></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+function sat(m){L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri World Imagery'}).addTo(m);L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}').addTo(m);}
+const ab=[
+{id:1,n:"1 · Cais dos Vapores",d:"Terminal em transição → lazer/náutica.",lat:38.703022,lon:-8.9768734},
+{id:2,n:"2 · Mundet Bela Vista 1923",d:"Naves cortiça p/ ateliers/serviços.",lat:38.7008029,lon:-8.96927},
+{id:3,n:"3 · Chaminé/Caldeiras* (aprox.)",d:"Exposição desde 2025; resto devoluto.",lat:38.7005,lon:-8.9698},
+{id:4,n:"4 · SAPAC/ex-ramal* (aprox.)",d:"Naves em banda. Verificar.",lat:38.701,lon:-8.9665},
+{id:5,n:"5 · Rua José Mundet",d:"Ruína parcial. Confirmar cadastro.",lat:38.7013905,lon:-8.9638016},
+{id:6,n:"6 · Forno de cal* (aprox.)",d:"Ruína em cota baixa.",lat:38.6995,lon:-8.968},
+{id:7,n:"7 · Estação/ramal* (aprox.)",d:"1908–89. Levantar restos.",lat:38.7023,lon:-8.9718},
+{id:8,n:"8 · Leste + Lançada 1368",d:"Fábrica + moinho antigo.",lat:38.6887492,lon:-8.9513752}];
+const mA=L.map('mapAb').setView([38.6995,-8.967],14);sat(mA);
+ab.forEach(p=>L.marker([p.lat,p.lon]).addTo(mA).bindPopup("<b>"+p.n+"</b><br>"+p.d));
+L.polyline(ab.slice(0,7).map(p=>[p.lat,p.lon]),{color:'#ffd54a',weight:3,dashArray:'8 6'}).addTo(mA);
+const mu=[
+{id:"M1",n:"M1 · Moinho → museu",d:"Moagem → museu 2005.",lat:38.703562,lon:-8.979547},
+{id:"M2",n:"M2 · Casa Mora → museu",d:"Casa 1875 → museu 1993.",lat:38.7066666,lon:-8.9761698},
+{id:"M3",n:"M3 · Mercado reabilitado",d:"Âncora comercial.",lat:38.7062083,lon:-8.9762356},
+{id:"M4",n:"M4 · Touros → Cinema 1957",d:"Polo cultural.",lat:38.7058789,lon:-8.9703657},
+{id:"M5",n:"M5 · Cais → lazer (curso)",d:"Náutica/restauração 2025–26.",lat:38.703022,lon:-8.9768734},
+{id:"M6",n:"M6 · Armazéns → passeio",d:"Requalificados 2006–07.",lat:38.7038091,lon:-8.9756346},
+{id:"M7",n:"M7 · Ramal → Ecopista*",d:"Montijo Ciclável.",lat:38.7023,lon:-8.9718},
+{id:"M8",n:"M8 · Caldeiras → exposição*",d:"Desde 2025.",lat:38.7005,lon:-8.9698}];
+const mM=L.map('mapMu').setView([38.7038,-8.9725],14);sat(mM);
+mu.forEach(p=>L.marker([p.lat,p.lon]).addTo(mM).bindPopup("<b>"+p.n+"</b><br>"+p.d));
+</script>
+</body>
+</html>

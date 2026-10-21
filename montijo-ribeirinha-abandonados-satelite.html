@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montijo Ribeirinha — 8 Abandonados sobre satélite (pesquisa p/ projeto)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--accent:#1f4d5b}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#eef2f5;color:#222;line-height:1.55}
+header{background:var(--accent);color:#fff;padding:1.6rem 1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1rem}
+#map{height:62vh;min-height:430px;border-top:4px solid var(--accent);border-bottom:4px solid var(--accent)}
+section.card{background:#fff;border:1px solid #d5dde3;border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th,td{border:1px solid #d5dde3;padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#e9f1f6;color:var(--accent)}
+.tag{font-size:.7rem;font-weight:bold;padding:.1rem .45rem;border-radius:10px;background:#eef;color:#345;border:1px solid #ccd;white-space:nowrap}
+.tag.aprox{background:#fff3d6;border-color:#e6d48a;color:#7a5f10}
+.src{font-size:.8rem;color:#666}
+.notice{background:#fff8e1;border:1px solid #e6d48a;padding:.9rem 1rem;border-radius:8px;margin:1rem 0;font-size:.92rem}
+footer{color:#666;font-size:.82rem;padding:0 0 2.5rem}
+img.static{max-width:100%;border:1px solid #d5dde3;border-radius:8px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1 style="margin:0">Montijo Ribeirinha — 8 Abandonados sobre satélite</h1>
+<p style="margin:.3rem 0">Esri World Imagery + OpenStreetMap · números 1–8 = imagem estática <b>montijo-satelite-abandonados-v2.png</b> · <b>verificar no local</b></p>
+</div></header>
+<div id="map"></div>
+<main class="wrap">
+<div class="notice"><strong>Uso em projeto de arquitetura:</strong> base documental, não levantamento. Propriedade, estado estrutural, contaminação, amianto e cotas de maré/cheia exigem visita com GPS, certidões e ensaios. Pontos <span class="tag">Nominatim/CM</span> têm coordenada com fonte; <span class="tag aprox">aprox.</span> são estimativas ao longo do ex-ramal/margem — fixar no terreno.</div>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">1. Mapa numerado — o que cada nº é</h2>
+<table>
+<tr><th>#</th><th>Edifício / conjunto</th><th>Pista de localização</th><th>Estado provável</th><th>Coord.</th><th>Base</th></tr>
+<tr><td><b>1</b></td><td><b>Cais dos Vapores</b> — antigo terminal fluvial (467+467+80 m²)</td><td>Frente rio, fim da Rua Miguel Pais</td><td>Devoluto em transição; protocolo APL→CM 11/06/2025, programa futuro lazer/náutica/restauração</td><td>38.70302, -8.97687</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>2</b></td><td><b>Mundet Bela Vista</b> — primeiros armazéns cortiça (1923)</td><td>Rua da Bela Vista</td><td>Naves grandes, estrutura em geral completa, coberturas/interiores a refazer (padrão 2012)</td><td>38.70080, -8.96927</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>3</b></td><td><b>Chaminé + Caldeiras Mundet</b> — símbolo industrial; parte com exposição desde 2025</td><td>Núcleo Bela Vista, junto ao nº 2</td><td>Chaminé em recuperação CM; Caldeiras com exposição “A cortiça…” (2025), restante devoluto</td><td>38.70050, -8.96980</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>4</b></td><td><b>Faixa SAPAC / ex-ramal</b> — naves em banda</td><td>Entre Bela Vista e José Mundet, ao longo da ex-ferrovia</td><td>Banda industrial, ocupação fragmentada; confirmar uso atual troço a troço</td><td>38.70100, -8.96650</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>5</b></td><td><b>Rua José Mundet</b> — parcelas ~15 000 + 7 000 m² em ruína</td><td>Rua José Mundet, nascente do ramal</td><td>Ruína parcial; confirmar existência e limites cadastrais</td><td>38.70139, -8.96380</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>6</b></td><td><b>Forno de cal + armazéns ribeirinhos</b></td><td>Margem entre Bela Vista e centro, cota baixa</td><td>Ruína arqueológica; vulnerável a maré/cheia; valor tipológico</td><td>38.69950, -8.96800</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>7</b></td><td><b>Antiga Estação + ramal Pinhal Novo–Montijo (1908–1989)</b></td><td>Topo da Rua Miguel Pais / eixo do ramal</td><td>Estação parcialmente descaracterizada; leito convertido em troços cicláveis; levantar o que resta</td><td>38.70230, -8.97180</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>8</b></td><td><b>Frente leste + Moinho da Lançada (1368)</b> — fábrica completa + moinho mais antigo</td><td>Lançada, a leste do centro, margem do esteiro</td><td>Fábrica a confirmar; moinho classificado como referência; acesso e maré a verificar</td><td>38.68875, -8.95138</td><td><span class="tag">Nominatim/CM</span></td></tr>
+</table>
+<p class="src">Geocodificação: Nominatim OSM 07/10/2026. “Aprox.” = estimativa do autor sobre ex-ramal/margem a partir da tese ULisboa 2012 e CM Montijo — obrigatória confirmação com GPS e PDM/ARU.</p>
+<img class="static" src="montijo-satelite-abandonados-v2.png" alt="Mapa estático satélite com 8 números">
+<p class="src">Imagem estática: Esri World Imagery (Maxar/GeoEye) via script make_ribeirinha_v2.py, zoom 16. Os números no PNG correspondem aos nºs da tabela e do mapa interativo.</p>
+</section>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">2. Por que abandonou — 5 datas para o projeto</h2>
+<ul>
+<li><b>Até 1930 Aldeia Galega:</b> cais, sal, vinho, pesca, vapor para Lisboa, ~20 matadouros. Rio = economia.</li>
+<li><b>1908 ramal + cortiça/carnes:</b> ferrovia fixa indústria junto à água. Anos 70: ~274 fábricas, 5 358 operários.</li>
+<li><b>1986 UE + 1988–93:</b> normas sanitárias fecham carnes; plástico e concorrência fecham cortiça (Mundet fecha 1988, insolvência 1993). Ramal encerra 1989.</li>
+<li><b>2006–07:</b> passeio ribeirinho Moinho–Cais requalificado, miolo industrial fica por tratar.</li>
+<li><b>2025–26:</b> Cais passa para o município (11/06/2025); revitalização aprovada por unanimidade (mar 2026). Janela de projeto aberta.</li>
+</ul>
+<p class="src">Fontes: CM Montijo (património industrial, ARU/ORU, PEZOR); tese ULisboa “Requalificação da Frente Ribeirinha do Montijo” (Folgado); dissertações ULusófona 2014 e FA-UL 2012; Diário do Distrito 12/06/2025; O Setubalense 28/10/2022; AMRS Rede Património (Mundet).</p>
+</section>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">3. Ficha mínima a levantar por nº (levar para o terreno)</h2>
+<table>
+<tr><th>O que medir</th><th>Como</th><th>Porquê no projeto</th></tr>
+<tr><td>Área, vão, pé-direito, estrutura, cobertura, humidade, acesso, cota</td><td>Fita + laser + fotos + GPS; comparar com matriz do PPTX</td><td>Define se dá para atelier, habitação, equipamento ou só estabilizar</td></tr>
+<tr><td>Dono, ónus, ARU/PEZOR, condicionantes APL/APA</td><td>Certidão + conversa CM/APL + PDF ARU/PEZOR</td><td>Sem isto o desenho não é licenciável</td></tr>
+<tr><td>Amianto, solos, maré/cheia</td><td>Despiste visual + ensaios + horário marés SMPC</td><td>R/C pode ter de ficar permeável; programa sensível em cima</td></tr>
+</table>
+</section>
+</main>
+<footer><div class="wrap"><p>Gerado 07/10/2026 para projeto de arquitetura. Satélite Esri; limites PEZOR/ARU indicativos — usar PDF oficial CM Montijo. Confirmar tudo no local.</p></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const pts = [
+{id:1,n:"1 · Cais dos Vapores",d:"Terminal 467+467+80 m². Futuro: náutica/lúdico/restauração (2025–26).",lat:38.703022,lon:-8.9768734},
+{id:2,n:"2 · Mundet Bela Vista 1923",d:"Primeiros armazéns cortiça. Naves p/ ateliers/serviços.",lat:38.7008029,lon:-8.96927},
+{id:3,n:"3 · Chaminé/Caldeiras* (aprox.)",d:"Chaminé em recuperação; Caldeiras com exposição desde 2025.",lat:38.7005,lon:-8.9698},
+{id:4,n:"4 · SAPAC/ex-ramal* (aprox.)",d:"Naves em banda. Verificar uso troço a troço.",lat:38.701,lon:-8.9665},
+{id:5,n:"5 · Rua José Mundet",d:"~15 000 + 7 000 m² em ruína parcial. Confirmar cadastro.",lat:38.7013905,lon:-8.9638016},
+{id:6,n:"6 · Forno de cal* (aprox.)",d:"Ruína arqueológica em cota baixa. Risco maré.",lat:38.6995,lon:-8.968},
+{id:7,n:"7 · Antiga Estação/ramal* (aprox.)",d:"1908–1989. Levantar o que resta; troços em ecopista.",lat:38.7023,lon:-8.9718},
+{id:8,n:"8 · Leste + Lançada 1368",d:"Fábrica a confirmar + moinho mais antigo da margem sul.",lat:38.6887492,lon:-8.9513752}];
+const map = L.map('map').setView([38.6995,-8.967], 14);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri World Imagery'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}').addTo(map);
+pts.forEach(p=>{ L.marker([p.lat,p.lon]).addTo(map).bindPopup("<b>"+p.n+"</b><br>"+p.d+"<br><span style='color:#666'>"+p.lat+", "+p.lon+"</span>"); });
+L.polyline(pts.slice(0,7).map(p=>[p.lat,p.lon]),{color:'#ffd54a',weight:3,dashArray:'8 6'}).addTo(map).bindTooltip("Faixa rio–ferrovia–fábrica");
+</script>
+</body>
+</html>

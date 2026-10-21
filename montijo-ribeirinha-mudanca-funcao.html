@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montijo Ribeirinha — 8 Mudanças de função (pesquisa p/ projeto)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--accent:#582f1b}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#f6f0e8;color:#222;line-height:1.55}
+header{background:var(--accent);color:#fff;padding:1.6rem 1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1rem}
+#map{height:62vh;min-height:430px;border-top:4px solid var(--accent);border-bottom:4px solid var(--accent)}
+section.card{background:#fff;border:1px solid #ddd0bf;border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th,td{border:1px solid #ddd0bf;padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#f3e8d8;color:var(--accent)}
+.tag{font-size:.7rem;font-weight:bold;padding:.1rem .45rem;border-radius:10px;background:#eef;color:#345;border:1px solid #ccd;white-space:nowrap}
+.tag.aprox{background:#fff3d6;border-color:#e6d48a;color:#7a5f10}
+.src{font-size:.8rem;color:#666}
+.notice{background:#fff8e1;border:1px solid #e6d48a;padding:.9rem 1rem;border-radius:8px;margin:1rem 0;font-size:.92rem}
+footer{color:#666;font-size:.82rem;padding:0 0 2.5rem}
+img.static{max-width:100%;border:1px solid #ddd0bf;border-radius:8px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1 style="margin:0">Montijo Ribeirinha — 8 Edifícios que mudaram de função</h1>
+<p style="margin:.3rem 0">Antes → agora, sobre satélite Esri · M1–M8 = <b>montijo-satelite-mudanca-funcao.png</b> · lições para o projeto</p>
+</div></header>
+<div id="map"></div>
+<main class="wrap">
+<div class="notice"><strong>Ideia para o projeto:</strong> o Montijo já testou quase todos os graus de reconversão — do museu integral (Moinho, Casa Mora) à requalificação de espaço público (passeio, ecopista) e à reconversão em curso (Cais, Caldeiras). Usa estes 8 como precedentes: o que manter, o que abrir, o que subir de cota.</div>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">1. Antes → agora (por nº de satélite)</h2>
+<table>
+<tr><th>#</th><th>Edifício</th><th>Antes</th><th>Agora</th><th>Coord.</th><th>Base</th></tr>
+<tr><td><b>M1</b></td><td><b>Moinho de Maré do Cais</b> — séc. XIII/XIV, ref. 1646</td><td>Moagem a maré (5–6 rodízios); abandono séc. XX, ruína</td><td>Propriedade municipal 1995; <b>museu</b> restaurado 2005–06; único no Tejo com mecanismos primitivos</td><td>38.70356, -8.97955</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M2</b></td><td><b>Casa Mora</b> — Av. Pescadores 52, ~1875</td><td>Habitação burguesa (Domingos Tavares); eclética, estuques/frescos</td><td>Comprada 80s p/ <b>Biblioteca Manuel Giraldes da Silva</b>; desde 1993 <b>Museu Municipal</b></td><td>38.70667, -8.97617</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M3</b></td><td><b>Mercado Municipal</b> — Praça Gomes Freire Andrade</td><td>Mercado tradicional</td><td><b>Reabilitado</b> (programa municipal de reabilitação); âncora de comércio local</td><td>38.70621, -8.97624</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M4</b></td><td><b>Cinema-Teatro Joaquim d'Almeida</b> — R. Joaquim Almeida, 1957</td><td>Praça de Touros em madeira na R. Miguel Pais (at. Joaquim Almeida 1838–1921)</td><td><b>Cinema-teatro</b> desde 06/11/1957; polo cultural (a ~400 m do rio)</td><td>38.70588, -8.97037</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M5</b></td><td><b>Cais dos Vapores</b> — terminal fluvial</td><td>Terminal Transtejo; devoluto</td><td>Protocolo APL→CM 11/06/2025; <b>em reconversão</b>: lazer + náutica + restauração (unanimidade mar 2026)</td><td>38.70302, -8.97687</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M6</b></td><td><b>Armazéns R. Miguel Pais / José Sousa Rama</b></td><td>Armazéns + antiga estação ferroviária</td><td><b>Requalificados 2006–07</b> no passeio ribeirinho Moinho–Cais; R. Miguel Pais prolongada como “Passeio do Cais”</td><td>38.70381, -8.97563</td><td><span class="tag">Nominatim/CM</span></td></tr>
+<tr><td><b>M7</b></td><td><b>Ramal Pinhal Novo–Montijo (1908–1989) → Ecopista</b></td><td>Ferrovia de mercadorias/passageiros da indústria</td><td><b>Montijo Ciclável</b>: reconversão da linha em ecopista/ciclovia (projeto municipal)</td><td>38.70230, -8.97180</td><td><span class="tag aprox">aprox.</span></td></tr>
+<tr><td><b>M8</b></td><td><b>Edifício das Caldeiras Mundet</b> — Bela Vista</td><td>Cozer cortiça da Mundet (1923–88)</td><td><b>Exposição longa duração</b> “A cortiça: matéria-prima…” desde 2025; restante fábrica por reconverter</td><td>38.70050, -8.96980</td><td><span class="tag aprox">aprox.</span></td></tr>
+</table>
+<p class="src">Fontes: CM Montijo (Moinho do Cais; Casa Mora; Cinema-Teatro; projetos “Montijo Ciclável”, “Requalificação Rua Miguel Pais – Cais”, “Mercado”, “Casa da Música”); protocolo APL-CM Cais 11/06/2025 (PDF CM); ADN/SAPO/Rostos/O Cidadão mar–jun 2025; AMRS Rede Património (Caldeiras 2025); tese ULisboa Folgado (armazéns/estação requalificados, 2 fábricas devolutas propostas p/ hotel); RTCP/e-cultura (Cinema-Teatro).</p>
+<img class="static" src="montijo-satelite-mudanca-funcao.png" alt="Mapa estático satélite com M1–M8">
+<p class="src">Imagem estática Esri zoom 16. M-nºs no PNG = tabela + mapa interativo. “Aprox.” (M7/M8) = eixo do ramal e núcleo Bela Vista — fixar com GPS e cadastro.</p>
+</section>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">2. O que cada caso ensina ao desenho</h2>
+<table>
+<tr><th>Caso</th><th>Estratégia que resultou</th><th>Levar para o teu projeto</th></tr>
+<tr><td>M1 Moinho → museu</td><td>Restauro tipológico (caldeira + engenhos) + requalificação envolvente; energia do sítio vira programa</td><td>Não esconder a máquina: corte maré–caldeira–engenho como centro do espaço</td></tr>
+<tr><td>M2 Casa → biblioteca → museu</td><td>Uso cultural compatível com compartimentação burguesa; estuques/frescos mantidos</td><td>Em habitação histórica, programa público leve preserva mais do que habitação profunda</td></tr>
+<tr><td>M5/M6 Cais + armazéns → passeio</td><td>Espaço público primeiro (2006–07), edifício depois; R/C permeável à maré</td><td>Fasear: âncora náutica/restauração no Cais e estender a nascente por quarteirões-piloto</td></tr>
+<tr><td>M7 Ramal → ecopista</td><td>Infraestrutura vira conector verde em vez de barreira</td><td>Usar o ex-ramal como alameda/ciclável que cose rio–estação–fábrica (corredor ecológico ARU/PEZOR)</td></tr>
+<tr><td>M4 Touros → cinema / M8 Caldeiras → exposição</td><td>Mudança de uso sem mudar o invólucro; estrutura e vãos reutilizados</td><td>Nas naves Mundet/SAPAC: dividir em arrendatários menores (ateliers/serviços) em vez de demolir</td></tr>
+</table>
+</section>
+
+<section class="card">
+<h2 style="color:var(--accent);margin:.2rem 0">3. Cruzamento abandonados × mudados (onde intervir)</h2>
+<ul>
+<li><b>Consolidado a copiar:</b> M1–M2–M3–M4–M6 (oeste + centro) — já funcionam; rematar com sinalética e cotas de cheia.</li>
+<li><b>Em curso — oportunidade de projeto:</b> M5 Cais + M8 Caldeiras + nºs 2–5 (faixa Mundet/SAPAC/José Mundet) — é aqui que o projeto pode propor o encadeamento hotel/ateliers/serviços já sugerido na tese ULisboa.</li>
+<li><b>Delicado — confirmar antes de desenhar:</b> nºs 6 (forno, maré) e 8 (Lançada, acesso + maré) e M7 (cadastro da linha).</li>
+</ul>
+<p class="src">Enquadramento: ARU 274 ha (núcleo + marginal nascente + corredor Assentas–Esteval); PEZOR 267 ha (Seixalinho–Lançada); PDM 1997 em revisão. Usar PDF oficial CM para limites.</p>
+</section>
+</main>
+<footer><div class="wrap"><p>Gerado 07/10/2026. Coordenadas verificadas via Nominatim assinaladas; “aprox.” a fixar no terreno. Visitar, fotografar, pedir certidões e falar com CM/APL antes de fechar programa.</p></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const pts = [
+{id:"M1",n:"M1 · Moinho do Cais → museu",d:"Moagem → museu 2005. Energia maré como programa.",lat:38.703562,lon:-8.979547},
+{id:"M2",n:"M2 · Casa Mora → museu",d:"Casa 1875 → biblioteca 80s → museu 1993.",lat:38.7066666,lon:-8.9761698},
+{id:"M3",n:"M3 · Mercado reabilitado",d:"Mercado tradicional reabilitado.",lat:38.7062083,lon:-8.9762356},
+{id:"M4",n:"M4 · Touros → Cinema-Teatro 1957",d:"Praça de touros madeira → cinema-teatro.",lat:38.7058789,lon:-8.9703657},
+{id:"M5",n:"M5 · Cais → lazer (em curso)",d:"Terminal → náutica/lúdico/restauração 2025–26.",lat:38.703022,lon:-8.9768734},
+{id:"M6",n:"M6 · Armazéns → passeio 2006–07",d:"Armazéns requalificados; Passeio do Cais.",lat:38.7038091,lon:-8.9756346},
+{id:"M7",n:"M7 · Ramal → Ecopista* (aprox.)",d:"Ferrovia 1908–89 → Montijo Ciclável.",lat:38.7023,lon:-8.9718},
+{id:"M8",n:"M8 · Caldeiras → exposição* (aprox.)",d:"Cozer cortiça → exposição desde 2025.",lat:38.7005,lon:-8.9698}];
+const map = L.map('map').setView([38.7038,-8.9725], 14);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Esri World Imagery'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}').addTo(map);
+pts.forEach(p=>{ L.marker([p.lat,p.lon]).addTo(map).bindPopup("<b>"+p.n+"</b><br>"+p.d+"<br><span style='color:#666'>"+p.lat+", "+p.lon+"</span>"); });
+</script>
+</body>
+</html>
