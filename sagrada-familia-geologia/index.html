@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>As pedras da Sagrada Família — geologia, idades e proveniências</title>
+<meta name="description" content="Trabalho de geologia sobre os tipos de pedra, idades e pedreiras de origem utilizados na construção da Sagrada Família de Barcelona.">
+<style>
+:root{
+  --verde:#1F4D3A; --verde-2:#2E6B52; --verde-claro:#E8F0EB;
+  --areia:#8A6A3D; --terracota:#B4552F; --cinza-azul:#5B6B7C;
+  --papel:#FAF8F4; --papel-2:#FFFFFF; --tinta:#1C1A17; --tinta-2:#5A554E;
+  --linha:#DFD9CF; --sombra:0 1px 2px rgba(28,26,23,.05),0 8px 24px rgba(28,26,23,.06);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--sans);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(250,248,244,.93);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--linha)}
+.nav-in{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;
+  gap:20px;height:60px}
+.brand{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--verde);
+  text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:11px;
+  color:var(--tinta-2);letter-spacing:.04em;text-transform:uppercase}
+.nav-links{margin-left:auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:7px 11px;border-radius:6px;font-size:13.5px;color:var(--tinta-2);
+  text-decoration:none;white-space:nowrap;transition:.15s}
+.nav-links a:hover{background:var(--verde-claro);color:var(--verde)}
+.nav-links a.on{background:var(--verde);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(168deg,#17382B 0%,#1F4D3A 48%,#2A6149 100%);
+  color:#F2EFE8;padding:72px 24px 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(1000px 380px at 88% -10%,rgba(180,85,47,.30),transparent 62%),
+             radial-gradient(760px 320px at 8% 110%,rgba(138,106,61,.26),transparent 60%);pointer-events:none}
+.hero-in{max-width:1220px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:#9FC4B2;font-weight:600;margin-bottom:18px}
+h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,62px);line-height:1.06;
+  margin:0 0 20px;font-weight:700;letter-spacing:-.022em}
+.hero p.lead{max-width:760px;font-size:19px;line-height:1.62;color:#D6E2DB;margin:0 0 34px}
+.stats{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(255,255,255,.18);
+  padding-top:26px;max-width:900px}
+.stat{padding:0 30px 0 0;margin-right:30px;border-right:1px solid rgba(255,255,255,.14)}
+.stat:last-child{border-right:0;margin-right:0}
+.stat b{display:block;font-family:var(--serif);font-size:31px;line-height:1.1;color:#F6E6C8}
+.stat span{font-size:12.5px;color:#A9C6B7;letter-spacing:.03em}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+section{padding:70px 0;border-bottom:1px solid var(--linha)}
+section:last-of-type{border-bottom:0}
+.sec-head{max-width:820px;margin-bottom:40px}
+.kicker{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--verde-2);
+  font-weight:700;margin-bottom:12px}
+h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);line-height:1.14;margin:0 0 14px;
+  letter-spacing:-.018em}
+h3{font-family:var(--serif);font-size:23px;line-height:1.2;margin:0 0 10px;letter-spacing:-.012em}
+.lead{font-size:18px;color:var(--tinta-2);margin:0}
+
+/* ---------- boxes ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--papel-2);border:1px solid var(--linha);border-radius:12px;
+  padding:24px;box-shadow:var(--sombra)}
+.card h3{margin-bottom:8px}
+.card p{font-size:15.5px;color:var(--tinta-2);margin:0 0 10px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:4px 9px;border-radius:5px;margin-bottom:12px}
+.pill{display:inline-block;font-size:12px;padding:3px 9px;border-radius:20px;
+  background:var(--verde-claro);color:var(--verde);font-weight:600;margin:0 6px 6px 0}
+
+/* ---------- pedra cards ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.fbtn{border:1px solid var(--linha);background:var(--papel-2);border-radius:20px;
+  padding:7px 16px;font-size:13.5px;cursor:pointer;color:var(--tinta-2);
+  font-family:inherit;transition:.15s}
+.fbtn:hover{border-color:var(--verde-2);color:var(--verde)}
+.fbtn.on{background:var(--verde);border-color:var(--verde);color:#fff}
+.stone{background:var(--papel-2);border:1px solid var(--linha);border-radius:14px;
+  overflow:hidden;box-shadow:var(--sombra);margin-bottom:34px;scroll-margin-top:80px}
+.stone-head{padding:26px 28px 22px;display:grid;grid-template-columns:1fr auto;gap:20px;
+  align-items:start;border-bottom:1px solid var(--linha)}
+.stone-head .idx{font-family:var(--mono);font-size:12px;color:var(--tinta-2);
+  letter-spacing:.08em;margin-bottom:7px}
+.stone-head h3{font-size:26px;margin:0 0 8px}
+.stone-head .rocha{font-size:15px;color:var(--tinta-2);margin:0}
+.badge{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:6px 11px;border-radius:6px;white-space:nowrap}
+.b-sedimentar{background:#F3EAD9;color:#6E5326}
+.b-igneia{background:#F8E3D8;color:#8E3F1F}
+.b-metamorfica{background:#E4EAEF;color:#42525F}
+.stone-body{padding:26px 28px}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;
+  border:1px solid var(--linha);border-radius:10px;overflow:hidden;margin-bottom:24px}
+.spec{padding:13px 16px;border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);
+  background:#FDFCFA}
+.spec dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-2);
+  font-weight:700;margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;line-height:1.45}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:0 0 22px}
+.shot{margin:0;cursor:zoom-in;border-radius:9px;overflow:hidden;background:#EFEAE1;
+  border:1px solid var(--linha);position:relative}
+.shot img{width:100%;height:190px;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.shot:hover img{transform:scale(1.045)}
+.shot figcaption{font-size:12.2px;line-height:1.45;color:var(--tinta-2);padding:9px 11px;
+  background:var(--papel-2)}
+.kindtag{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;
+  background:rgba(28,26,23,.78);color:#fff}
+.prose{font-size:15.8px;line-height:1.7;color:var(--tinta-2)}
+.prose strong{color:var(--tinta)}
+.prose p{margin:0 0 12px}
+.minihead{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--verde-2);
+  font-weight:700;margin:20px 0 7px}
+.usobox{background:var(--verde-claro);border-left:3px solid var(--verde);border-radius:0 8px 8px 0;
+  padding:13px 17px;font-size:15.2px;margin-top:18px}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--linha);border-radius:12px;
+  background:var(--papel-2);box-shadow:var(--sombra)}
+table{border-collapse:collapse;width:100%;min-width:940px;font-size:14.4px}
+th{background:var(--verde);color:#fff;text-align:left;padding:12px 14px;font-size:12px;
+  letter-spacing:.07em;text-transform:uppercase;font-weight:700;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--linha);vertical-align:top}
+tbody tr:nth-child(even){background:#FBFAF7}
+tbody tr:hover{background:var(--verde-claro)}
+td b{color:var(--verde)}
+.fdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;
+  vertical-align:middle}
+
+/* ---------- timeline ---------- */
+.tl{background:var(--papel-2);border:1px solid var(--linha);border-radius:14px;padding:26px 20px 14px;
+  box-shadow:var(--sombra);overflow-x:auto}
+.tl svg{display:block;min-width:900px;width:100%;height:auto}
+
+/* ---------- temas ---------- */
+.tema{display:grid;grid-template-columns:74px 1fr;gap:24px;padding:26px 0;
+  border-top:1px solid var(--linha)}
+.tema:first-child{border-top:0}
+.tema .n{font-family:var(--serif);font-size:38px;line-height:1;color:#C9D6CE;font-weight:700}
+.tema h3{margin-bottom:8px}
+.tema p{font-size:15.8px;color:var(--tinta-2);margin:0;line-height:1.68}
+.tema p strong{color:var(--tinta)}
+
+/* ---------- campo ---------- */
+.campo{display:grid;grid-template-columns:1fr;gap:0;background:var(--papel-2);
+  border:1px solid var(--linha);border-radius:12px;overflow:hidden;box-shadow:var(--sombra)}
+.campo-item{display:grid;grid-template-columns:230px 1fr 92px;gap:20px;padding:17px 22px;
+  border-top:1px solid var(--linha);align-items:baseline}
+.campo-item:first-child{border-top:0}
+.campo-item .place{font-weight:600;font-size:15.5px;color:var(--verde)}
+.campo-item .place span{display:block;font-weight:400;font-size:12.5px;color:var(--tinta-2)}
+.campo-item p{margin:0;font-size:14.8px;color:var(--tinta-2);line-height:1.6}
+.campo-item p strong{color:var(--tinta)}
+
+/* ---------- bibliografia ---------- */
+.biblio{font-size:15.3px;color:var(--tinta-2);line-height:1.66}
+.biblio li{margin-bottom:13px;padding-left:4px}
+.biblio strong{color:var(--tinta)}
+.biblio em{color:var(--verde);font-style:italic}
+
+/* ---------- notas ---------- */
+.note{font-size:13.6px;color:var(--tinta-2);line-height:1.62}
+.note code{font-family:var(--mono);font-size:12.4px;background:#EFEAE1;padding:2px 6px;
+  border-radius:4px;color:var(--verde)}
+.warn{background:#FBF3E4;border:1px solid #E9D7B4;border-radius:10px;padding:18px 22px;
+  font-size:15px;color:#6E5326;margin-top:22px}
+.warn strong{color:#5A3F17}
+
+/* ---------- footer ---------- */
+footer{background:#17382B;color:#B7CCC1;padding:52px 24px 64px;font-size:14px}
+footer .wrap{max-width:1220px}
+footer h4{font-family:var(--serif);color:#F2EFE8;font-size:20px;margin:0 0 12px}
+footer a{color:#9FC4B2}
+.credits{columns:2;column-gap:36px;font-size:12.6px;line-height:1.6}
+.credits div{break-inside:avoid;margin-bottom:7px}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;background:rgba(16,14,12,.93);z-index:200;display:none;
+  align-items:center;justify-content:center;padding:32px}
+.lb.show{display:flex}
+.lb img{max-width:100%;max-height:82vh;border-radius:8px;box-shadow:0 20px 70px rgba(0,0,0,.6)}
+.lb .cap{color:#CFC9BF;font-size:13.5px;max-width:820px;margin-top:16px;text-align:center;line-height:1.55}
+.lb .cap a{color:#9FC4B2}
+.lb .x{position:absolute;top:20px;right:24px;font-size:34px;color:#E8E2D8;cursor:pointer;
+  background:none;border:0;line-height:1;font-family:var(--sans)}
+.lb .nav2{position:absolute;top:50%;transform:translateY(-50%);font-size:44px;color:#E8E2D8;
+  cursor:pointer;background:none;border:0;padding:0 18px;opacity:.65}
+.lb .nav2:hover{opacity:1}
+.lb .p{position:absolute;left:50%;transform:translateX(-50%);bottom:24px;color:#8F887E;font-size:12.5px}
+
+/* ---------- footer nav ---------- */
+.totop{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;
+  background:var(--verde);color:#fff;border:0;cursor:pointer;font-size:19px;
+  box-shadow:0 6px 20px rgba(31,77,58,.32);opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.totop.show{opacity:1;pointer-events:auto}
+
+@media (max-width:980px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .campo-item{grid-template-columns:1fr;gap:8px}
+  .stone-head{grid-template-columns:1fr}
+  .tema{grid-template-columns:1fr;gap:10px}
+  .tema .n{font-size:28px}
+  .credits{columns:1}
+  .stat{padding-right:18px;margin-right:18px}
+  .spec{border-right:1px solid var(--linha)}
+}
+@media print{
+  .nav,.totop,.lb{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .stone{break-inside:avoid;page-break-inside:avoid}
+  section{padding:24px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#topo">Sagrada Família<small>geologia das pedras</small></a>
+    <div class="nav-links">
+      <a href="#contexto">Contexto</a>
+      <a href="#templo">O templo</a>
+      <a href="#familias">Famílias</a>
+      <a href="#pedras">As pedras</a>
+      <a href="#tempo">Linha do tempo</a>
+      <a href="#tabela">Tabela</a>
+      <a href="#resistencia">Resistência</a>
+      <a href="#temas">Leitura crítica</a>
+      <a href="#campo">Campo</a>
+      <a href="#metodo">Método</a>
+      <a href="#biblio">Bibliografia</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="topo">
+  <div class="hero-in">
+    <div class="eyebrow">Trabalho de geologia · Curso de Arquitetura</div>
+    <h1>As pedras<br>da Sagrada Família</h1>
+    <p class="lead">Que rochas construíram a basílica, com que idade e de que pedreira saíram?
+      Do granito de 285 milhões de anos do Vallès ao travertino de 125 mil anos de Tivoli:
+      uma geologia de materiais que atravessa 300 milhões de anos e quatro continentes.</p>
+    <div class="stats">
+      <div class="stat"><b>13</b><span>pedras distintas</span></div>
+      <div class="stat"><b>~40</b><span>pedreiras</span></div>
+      <div class="stat"><b>300 Ma</b><span>de amplitude temporal</span></div>
+      <div class="stat"><b>150 000 m³</b><span>de material</span></div>
+      <div class="stat"><b>~60</b><span>tipos de pedra</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="contexto">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">01 · Enquadramento</div>
+      <h2>Barcelona é um menu de matérias-primas</h2>
+      <p class="lead">O templo assenta sobre três afloramentos rochosos distintos dentro da cidade
+        — e cada um deles fornece uma família de pedras diferente.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:28px">
+      <div class="card"><span class="tag" style="background:#1F4D3A1A;color:#1F4D3A">Collserola (NW)</span>
+        <p>Substrato paleozoico (filites e xistos do Ordovício–Carbonífero) metamorfizado na orogénese
+          varisca, e granitoides tardivariscanos. <strong>Daqui saem os granitos</strong> — Òrrius,
+          «ull de serp».</p></div>
+      <div class="card"><span class="tag" style="background:#8A6A3D1A;color:#8A6A3D">Montjuïc (S)</span>
+        <p>Bloco tectónico inclinado de sedimentos deltaícos miocénicos (~15–11 Ma), silicificados.
+          <strong>Daqui sai o arenito</strong> — a pedra-mãe do templo, explorada desde Roma até 1957.</p></div>
+      <div class="card"><span class="tag" style="background:#B4552F1A;color:#B4552F">Pla de Barcelona</span>
+        <p>Semiencavamento preenchido por sedimentos pliocénicos e quaternários (deltas do Llobregat
+          e do Besòs). Substrato mole — e <strong>as rochas vulcânicas da Garrotxa</strong> fornecem
+          o basalto, a 95 km.</p></div>
+    </div>
+    <div class="shots"><figure class="shot" data-full="img/ctx-mapa-variscano.png" data-cap="Distribuicao dos orogenos variscanos na Europa. Os granitos catalanies crystallizaram neste evento." data-author="Jo weber" data-lic="Public domain" data-page="https://commons.wikimedia.org/wiki/File:Distribution_of_varisican_orogenies.png"><img src="img/ctx-mapa-variscano.png" alt="Distribuicao dos orogenos variscanos na Europa. Os granitos catalanies crystallizaram nest" loading="lazy"><figcaption>Distribuicao dos orogenos variscanos na Europa. Os granitos catalanies crystallizaram neste evento.</figcaption></figure><figure class="shot" data-full="img/ctx-orogenia.jpg" data-cap="Reconstrucao da Europa ha ~237 Ma, no fecho da orogenese varisca (Carboniferico-Permico)." data-author="Salsero35" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:237_Ma_orogenies_reconstruction.jpg"><img src="img/ctx-orogenia.jpg" alt="Reconstrucao da Europa ha ~237 Ma, no fecho da orogenese varisca (Carboniferico-Permico)." loading="lazy"><figcaption>Reconstrucao da Europa ha ~237 Ma, no fecho da orogenese varisca (Carboniferico-Permico).</figcaption></figure><figure class="shot" data-full="img/ctx-collserola.jpg" data-cap="Collserola: o substrato paleozoico e granitico que forneceu os granitos do templo." data-author="Pere López" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Carretera_de_les_Aig%C3%BCes_P1230333.JPG"><img src="img/ctx-collserola.jpg" alt="Collserola: o substrato paleozoico e granitico que forneceu os granitos do templo." loading="lazy"><figcaption>Collserola: o substrato paleozoico e granitico que forneceu os granitos do templo.</figcaption></figure><figure class="shot" data-full="img/ctx-montjuic-pedreira.jpg" data-cap="Pedreira romana de Montjuïc. As paredes em arco sao vestigios do corte: a mesma rocha alimentou Roma, o Gotico, o Eixample e o templo." data-author="Carme Miró i Alaix (Servei d&#x27;Arqueologia de Barcelona)" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Pedrera_romana_de_Montju%C3%AFc_1.jpg"><img src="img/ctx-montjuic-pedreira.jpg" alt="Pedreira romana de Montjuïc. As paredes em arco sao vestigios do corte: a mesma rocha alim" loading="lazy"><figcaption>Pedreira romana de Montjuïc. As paredes em arco sao vestigios do corte: a mesma rocha alimentou Roma, o Gotico, o Eixample e o templo.</figcaption></figure><figure class="shot" data-full="img/ctx-montjuic-vista.jpg" data-cap="Montjuïc. A montanha e um bloco tectonico inclinado de arenitos e conglomerados miocenicos." data-author="Year of the dragon" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Spain.Catalonia.Barcelona.Vista.Panoramica.Montjuic.jpg"><img src="img/ctx-montjuic-vista.jpg" alt="Montjuïc. A montanha e um bloco tectonico inclinado de arenitos e conglomerados miocenicos" loading="lazy"><figcaption>Montjuïc. A montanha e um bloco tectonico inclinado de arenitos e conglomerados miocenicos.</figcaption></figure></div>
+    <div class="warn" style="margin-top:26px">
+      <strong>Nota importante sobre o basalto de Collserola.</strong> A pedra de Sant Martí de Sarroca
+      (Collserola) étightly associada a Gaudí, mas é usada no <strong>Park Güell</strong> (átrio,
+      colunas, portal da Finca Güell) e em Bellesguard — <strong>não</strong> na Sagrada Família.
+      No templo, o basalto é <strong>italiano</strong> (Bagnoregio) e <strong>catalão da Garrotxa</strong>
+      (Castellfollit de la Roca).
+    </div>
+  </div>
+</section>
+
+<section id="templo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">02 · O templo</div>
+      <h2>Onde cada pedra se vê</h2>
+      <p class="lead">A pedra não é um material neutro: a escolha da cor, do grão e da resistência
+        organiza o efeito do edifício. A fachada do Nascimento é uma parede de arenito; o interior
+        é um bosque de colunas de cinco rochas diferentes.</p>
+    </div>
+    <div class="shots"><figure class="shot" data-full="img/tmpl-nascimento.jpg" data-cap="Faca do Nascimento, construida inteiramente em pedra de Montjuïc." data-author="Txllxt TxllxT" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Barcelona_-_La_Sagrada_Fam%C3%ADlia_-_Nativity_Fa%C3%A7ade_IV.jpg"><img src="img/tmpl-nascimento.jpg" alt="Faca do Nascimento, construida inteiramente em pedra de Montjuïc." loading="lazy"><figcaption>Faca do Nascimento, construida inteiramente em pedra de Montjuïc.</figcaption></figure><figure class="shot" data-full="img/tmpl-nascimento-cc0.jpg" data-cap="Faca do Nascimento vista do chao. Imagem CC0 (dominio publico)." data-author="Julian Lupyan" data-lic="CC0" data-page="https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia_Nativity_Fa%C3%A7ade_from_Ground,_Barcelona,_2023.jpg"><img src="img/tmpl-nascimento-cc0.jpg" alt="Faca do Nascimento vista do chao. Imagem CC0 (dominio publico)." loading="lazy"><figcaption>Faca do Nascimento vista do chao. Imagem CC0 (dominio publico).</figcaption></figure><figure class="shot" data-full="img/tmpl-coluna-evangelista.jpg" data-cap="Coluna dos Evangelistas. As quatro maiores (Ø 2,10 m) sao de porfiro vermelho de Yazd." data-author="Poniol60" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Sagrada_familia_interior_columna_00001.jpg"><img src="img/tmpl-coluna-evangelista.jpg" alt="Coluna dos Evangelistas. As quatro maiores (Ø 2,10 m) sao de porfiro vermelho de Yazd." loading="lazy"><figcaption>Coluna dos Evangelistas. As quatro maiores (Ø 2,10 m) sao de porfiro vermelho de Yazd.</figcaption></figure><figure class="shot" data-full="img/tmpl-colunas.jpg" data-cap="Nave central: colunas ramificadas e inclinadas, como arvores." data-author="Gianluca Miscione" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Sagrada_Familia_columns.jpg"><img src="img/tmpl-colunas.jpg" alt="Nave central: colunas ramificadas e inclinadas, como arvores." loading="lazy"><figcaption>Nave central: colunas ramificadas e inclinadas, como arvores.</figcaption></figure><figure class="shot" data-full="img/tmpl-interior.jpg" data-cap="Interior do templo. A luz entra filtrada pelas vidracoes." data-author="Ad Meskens" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Barcelona_Sagrada_Familia_interior_01.jpg"><img src="img/tmpl-interior.jpg" alt="Interior do templo. A luz entra filtrada pelas vidracoes." loading="lazy"><figcaption>Interior do templo. A luz entra filtrada pelas vidracoes.</figcaption></figure><figure class="shot" data-full="img/tmpl-nau.jpg" data-cap="A nave vista do transsepte." data-author="Sagrada Família (oficial)" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia._Interior_nau.jpg"><img src="img/tmpl-nau.jpg" alt="A nave vista do transsepte." loading="lazy"><figcaption>A nave vista do transsepte.</figcaption></figure><figure class="shot" data-full="img/tmpl-paixao.jpg" data-cap="Detalhe da Porta da Caridade, na Faca do Nascimento." data-author="Lmbuga" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Detalle_da_Fachada_da_Caridade._Sagrada_Familia._Barcelona_B41.jpg"><img src="img/tmpl-paixao.jpg" alt="Detalhe da Porta da Caridade, na Faca do Nascimento." loading="lazy"><figcaption>Detalhe da Porta da Caridade, na Faca do Nascimento.</figcaption></figure></div>
+  </div>
+</section>
+
+<section id="familias">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">03 · Classificação</div>
+      <h2>Três famílias de rochas</h2>
+      <p class="lead">O critério não é geográfico nem decorativo: é o processo que formou a rocha.
+        É essa a chave de leitura de todo o conjunto.</p>
+    </div>
+    <div class="grid-3"><div class="card"><span class="tag" style="background:#8A6A3D1A;color:#8A6A3D">Rocas sedimentares</span><p>Fragmentos derivados de rochas preexistentes, transportados e depositados por água, vento ou gelo. Compactação e cimento Portland transformam-nos em rocha sedimentar. São rochas de origem mecânica: o seu grão guarda a história do transporte.</p><div><span class="pill">Pedra de Montjuïc</span><span class="pill">Pedra de Calafell</span><span class="pill">Pedra de la Floresta</span><span class="pill">Pedra de Figueres</span><span class="pill">Travertino</span></div></div><div class="card"><span class="tag" style="background:#B4552F1A;color:#B4552F">Rocas ígneas</span><p>Formadas pelo arrefecimento e solidificação de um magma. Plutónicas quando o magma arrefece em profundidade (granitos, ~300 Ma); efusivas quando irrompe à superfície (basaltos, pórfiros).</p><div><span class="pill">Granito de Òrrius — «ull de serp»</span><span class="pill">Granito do Tarn</span><span class="pill">Granito de Fráguas</span><span class="pill">Granito branco cristal</span><span class="pill">Pórfiro vermelho de Yazd</span><span class="pill">Basalto de Bagnoregio</span><span class="pill">Basalto de Castellfollit de la Roca</span></div></div><div class="card"><span class="tag" style="background:#5B6B7C1A;color:#5B6B7C">Rocas metamórficas</span><p>Rochas preexistentes transformadas por calor, pressão e fluidos no interior da crusta, sem fusão. O mármore de Macael é um calcário triásico recristalizado sob 1,8 GPa.</p><div><span class="pill">Mármore de Macael</span></div></div></div>
+  </div>
+</section>
+
+<section id="pedras">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">04 · As pedras</div>
+      <h2>Treze pedras, treze histórias geológicas</h2>
+      <p class="lead">Cada pedra é apresentada com a sua ficha técnica, a sua petrografia,
+        o processo que a formou e o lugar exacto onde entra na obra.
+        <strong>Clique numa imagem</strong> para a ver em tamanho completo.</p>
+    </div>
+    <div class="filters"><button class="fbtn on" data-f="all">Todas as pedras</button><button class="fbtn" data-f="sedimentar">Sedimentares</button><button class="fbtn" data-f="igneia">Ígneas</button><button class="fbtn" data-f="metamorfica">Metamórficas</button></div>
+    
+<article class="stone" id="pedra-montjuic" data-fam="sedimentar">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 01 / 13</div>
+      <h3>Pedra de Montjuïc</h3>
+      <p class="rocha">Arenito silicoso (silicificado) — Gres silício / lit arenito silício</p>
+    </div>
+    <span class="badge b-sedimentar">Roca sedimentar</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Gres silício / lit arenito silício</dd></div><div class="spec"><dt>Idade</dt><dd>Miocénico médio–superior · <b>~15–11 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Deltaíco (sistema deltaico do Llobregat), coluvião da rocha de Collserola</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Montjuïc, Barcelona — Catalunya, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>41.363° N, 2.165° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>0–6 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,64 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>978 kg/cm² · 96 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/montjuic-lamina.jpg" data-cap="Arenito em lamina fina (luz polarizada). Cimento silicoso microcristalino a unir os graos de quartzo — e esta silicificacao que torna a pedra compacta." data-author="Michael C. Rygel" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:200708-1_qtzarem_silicacemt_50x_PPL.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/montjuic-lamina.jpg" alt="Arenito em lamina fina (luz polarizada). Cimento silicoso microcristalino a unir os graos " loading="lazy"><figcaption>Arenito em lamina fina (luz polarizada). Cimento silicoso microcristalino a unir os graos de quartzo — e esta silicificacao que torna a pedra compacta.</figcaption></figure><figure class="shot" data-full="img/montjuic-macro.jpg" data-cap="Arenito em superficie natural: textura silicosa compacta, cinzenta a rosada." data-author="Dr. Karl-Heinz Hochhaus" data-lic="CC BY 3.0" data-page="https://commons.wikimedia.org/wiki/File:2010_08_04_Prebischtor_Felsentor_DSCI0644.JPG"><span class="kindtag">Tipo de rocha</span><img src="img/montjuic-macro.jpg" alt="Arenito em superficie natural: textura silicosa compacta, cinzenta a rosada." loading="lazy"><figcaption>Arenito em superficie natural: textura silicosa compacta, cinzenta a rosada.</figcaption></figure><figure class="shot" data-full="img/montjuic-pedreira.jpg" data-cap="Pedreira romana de Montjuïc — a mesma materia-prima do templo." data-author="Carme Miró i Alaix (Servei d&#x27;Arqueologia de Barcelona)" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Pedrera_romana_de_Montju%C3%AFc_1.jpg"><span class="kindtag">Local de origem</span><img src="img/montjuic-pedreira.jpg" alt="Pedreira romana de Montjuïc — a mesma materia-prima do templo." loading="lazy"><figcaption>Pedreira romana de Montjuïc — a mesma materia-prima do templo.</figcaption></figure><figure class="shot" data-full="img/montjuic-aplicacao.jpg" data-cap="A aplicacao mais visivel do arenito de Montjuïc: as torres e as fachadas." data-author="Alvesgaspar" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Sagrada_Familia_March_2015-14a.jpg"><span class="kindtag">Local de origem</span><img src="img/montjuic-aplicacao.jpg" alt="A aplicacao mais visivel do arenito de Montjuïc: as torres e as fachadas." loading="lazy"><figcaption>A aplicacao mais visivel do arenito de Montjuïc: as torres e as fachadas.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Arenita de grão 0,06–2 mm, de marcada heterometria, passando a microconglomerado; grans unidos por compactação e por cimento silício microcristalino, por vezes argiloso-ferruginoso.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz (frequentemente >50%), feldspato potássico, plagioclase, fragmentos de rocha (metamórfica e granítica), moscovita, turmalina; acessórios: zircão, apatite.</p>
+      <div class="minihead">Processo geológico</div><p>Deposição detrítica num delta miocénico, seguida de silicificação diagénica quase total. É esta silicificação que transforma um arenito friável num grés compacto e muito resistente — a distinção local entre <em>blanquet</em> (duro) e <em>rebuig</em> (macio) é, em essence, uma distinção de grau de silicificação.</p>
+      <div class="minihead">Aplicação no templo</div><p>Façana do Nascimento, Façana da Paixão, as quatro torres (~100 m), colunas hexagonais de Ø 1,05 m, galerias do coro, escadas de acesso.</p>
+      <div class="usobox"><strong>Em resumo —</strong> A pedra-mãe. Explotada desde a época romana até 1957 — a maior pedreira da história da cidade. Alimentou Barcelona desde os romanos até ao Eixample de Cerdà.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-orrius" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 02 / 13</div>
+      <h3>Granito de Òrrius — «ull de serp»</h3>
+      <p class="rocha">Granodiorita–tonalita — Granitoide ácido, plutónico, textura holocristalina fanerítica</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea plutónica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Granitoide ácido, plutónico, textura holocristalina fanerítica</dd></div><div class="spec"><dt>Idade</dt><dd>Variscano tardio / pós-tectónico · <b>~300–270 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Batólito da Serra Litoral Catalana (complexo Sant Llorenç del Munt–Òrrius)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Òrrius i Llinars del Vallès, Vallès Oriental — Catalunya</dd></div><div class="spec"><dt>Coordenadas</dt><dd>41.550° N, 2.200° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~25 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,69 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>1 559 kg/cm² · 153 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/orrius-lamina.jpg" data-cap="Granodiorita-tonalita em lamina fina. Feldspato zonado, biotita e hornblenda — o &#x27;ull de serp&#x27;." data-author="Kevin M. Gill" data-lic="CC BY 4.0" data-page="https://commons.wikimedia.org/wiki/File:Granodiorite_(55185004332).jpg"><span class="kindtag">Tipo de rocha</span><img src="img/orrius-lamina.jpg" alt="Granodiorita-tonalita em lamina fina. Feldspato zonado, biotita e hornblenda — o &#x27;ull de s" loading="lazy"><figcaption>Granodiorita-tonalita em lamina fina. Feldspato zonado, biotita e hornblenda — o &#x27;ull de serp&#x27;.</figcaption></figure><figure class="shot" data-full="img/orrius-macro.jpg" data-cap="Granito biotitico de dois muscovitas, com cristais visiveis a olho nu (2–5 mm)." data-author="Moreau.henri" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:380_Granite_porphiro%C3%AFde_gris_Ploun%C3%A9vez-Quintin.JPG"><span class="kindtag">Tipo de rocha</span><img src="img/orrius-macro.jpg" alt="Granito biotitico de dois muscovitas, com cristais visiveis a olho nu (2–5 mm)." loading="lazy"><figcaption>Granito biotitico de dois muscovitas, com cristais visiveis a olho nu (2–5 mm).</figcaption></figure><figure class="shot" data-full="img/orrius-serra.jpg" data-cap="Serra Litoral Catalana, onde se abrem as pedreiras de granito do Vallès Oriental." data-author="Pere López" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Serra_de_Vilana_P1230317.JPG"><span class="kindtag">Local de origem</span><img src="img/orrius-serra.jpg" alt="Serra Litoral Catalana, onde se abrem as pedreiras de granito do Vallès Oriental." loading="lazy"><figcaption>Serra Litoral Catalana, onde se abrem as pedreiras de granito do Vallès Oriental.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Granular, holocristalina, fanerítica; grão de 2–5 mm (médio a grosso), reconhecível à vista desarmada. Feldspatos zonados; biotita inalterada.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz, plagioclase, feldspato potássico, biotita, hornblenda; acessório: zircão.</p>
+      <div class="minihead">Processo geológico</div><p>Cristalização lenta de um magma ácido a ~1 km de profundidade no miolo da crusta, no fecho da orogénese varisca (colisão Laurásia–Gondwana). A rocha escura de biotita sobre fundo claro dá o «olho de serpente» que lhe dá o nome.</p>
+      <div class="minihead">Aplicação no templo</div><p>A maioria das colunas octogonais de Ø 1,40 m da nave central e do transepto, respetivos capitéis, degraus da escada da cripta e 22 colunas da Façana da Glória.</p>
+      <div class="usobox"><strong>Em resumo —</strong> É a rocha mais authenticamente «catalã» do templo: extraída a 25 km, na mesma serra que fornece o granito ao resto do país.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-tarn" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 03 / 13</div>
+      <h3>Granito do Tarn (Sidobre)</h3>
+      <p class="rocha">Granito leucocrático quartzoso — Granitoide ácido, plutónico, muito rico em quartzo</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea plutónica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Granitoide ácido, plutónico, muito rico em quartzo</dd></div><div class="spec"><dt>Idade</dt><dd>Variscano · <b>~300 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Plano do Sidobre, maciço granítico do Tarn</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Sidobre, Tarn — Occitânia, França</dd></div><div class="spec"><dt>Coordenadas</dt><dd>43.556° N, 2.470° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~500 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,66 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>1 865 kg/cm² · 183 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/tarn-granito.jpg" data-cap="Blocos de granito do Sidobre (Tarn, Franca). Quartzoso ate 55% — a rocha mais resistente dos granitos do templo." data-author="Tarnais81600" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Le_Roc_de_l%27Oie.jpg"><span class="kindtag">Local de origem</span><img src="img/tarn-granito.jpg" alt="Blocos de granito do Sidobre (Tarn, Franca). Quartzoso ate 55% — a rocha mais resistente d" loading="lazy"><figcaption>Blocos de granito do Sidobre (Tarn, Franca). Quartzoso ate 55% — a rocha mais resistente dos granitos do templo.</figcaption></figure><figure class="shot" data-full="img/tarn-alteracao.jpg" data-cap="Alteracao esferoidal no granito do Sidobre: &#x27;o chapeu de Napoleao&#x27;, bloco com descamamento concentrico." data-author="Villard Marc" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Le_chapeau_de_Napol%C3%A9on_-_Sidobre.JPG"><span class="kindtag">Local de origem</span><img src="img/tarn-alteracao.jpg" alt="Alteracao esferoidal no granito do Sidobre: &#x27;o chapeu de Napoleao&#x27;, bloco com descamamento" loading="lazy"><figcaption>Alteracao esferoidal no granito do Sidobre: &#x27;o chapeu de Napoleao&#x27;, bloco com descamamento concentrico.</figcaption></figure><figure class="shot" data-full="img/tarn-panorama.jpg" data-cap="Sidobre, Roc de l&#x27;Oie — o bloco granitico que &#x27;anda&#x27; sobre a superficie." data-author="Villard Marc" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Les_trois_fromages_-_Sidobre.JPG"><span class="kindtag">Local de origem</span><img src="img/tarn-panorama.jpg" alt="Sidobre, Roc de l&#x27;Oie — o bloco granitico que &#x27;anda&#x27; sobre a superficie." loading="lazy"><figcaption>Sidobre, Roc de l&#x27;Oie — o bloco granitico que &#x27;anda&#x27; sobre a superficie.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Granular, holocristalina, fanerítica; grão de 2–3 mm. O quartz pode aparecer em cristais individualizáveis; a biotita apresenta-se cloritizada e a plagioclase, sericitizada.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz (até 55% em algumas amostras), plagioclase, feldspato potássico, biotita (cloritizada), moscovita.</p>
+      <div class="minihead">Processo geológico</div><p>Mesma orogénese varisca. A célula — composição mais leucocrática — dá-lhe o melhor desempenho mecânico de todos os granitos usados no templo, e uma tonalidade mais clara, quase alba.</p>
+      <div class="minihead">Aplicação no templo</div><p>Colunas octogonais de Ø 1,40 m em torno do presbitério e os seus capitéis.</p>
+      <div class="usobox"><strong>Em resumo —</strong> «A rocha que anda»: o Roc de l'Oie, bloco granítico que desliza lentamente sobre a superfície do Sidobre, é a imagem mais famosa desta pedra.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-fraguas" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 04 / 13</div>
+      <h3>Granito de Fráguas</h3>
+      <p class="rocha">Granito biotítico bicolor — Granito plutónico, rico em biotita</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea plutónica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Granito plutónico, rico em biotita</dd></div><div class="spec"><dt>Idade</dt><dd>Variscano · <b>~300 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Maciço de Fráguas (Serra da Capelada / norte da Galiza)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Fráguas, Lugo — Galiza, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>43.760° N, 7.600° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~700 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>—</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/fraguas-granito.jpg" data-cap="Granito biotitico escuro da Galiza, com pintas claras de micas." data-author="Luis Miguel Bugallo Sánchez (Lmbuga)" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:2017_San_Vicente_do_Mar._O_Grove._Galiza-3.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/fraguas-granito.jpg" alt="Granito biotitico escuro da Galiza, com pintas claras de micas." loading="lazy"><figcaption>Granito biotitico escuro da Galiza, com pintas claras de micas.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Granular fanerítica, de biotita abundante; o contraste entre a mica escura e o Feldspato claro dá o aspecto mosqueado característico.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz, plagioclase, feldspato potássico, biotita, moscovita.</p>
+      <div class="minihead">Processo geológico</div><p>Granito variscano da Galiza, intrudido nos metasedimentos paleozoicos do Maciço Central Galego. A mesma história de 300 Ma, noutro ponto da Ibéria.</p>
+      <div class="minihead">Aplicação no templo</div><p>Colunas hexagonais de Ø 1,05 m encostadas às capelas do abside.</p>
+      <div class="usobox"><strong>Em resumo —</strong> Uma das rochas mais antigas do templo a servir uma zona de sombra — a galeria do abside, onde a luz é indireta e a cor escura do granito amplifica a penumbra.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-branco" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 05 / 13</div>
+      <h3>Granito branco cristal (Madrid)</h3>
+      <p class="rocha">Granito leucocrático — Granitoide ácido de grão médio, claro</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea plutónica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Granitoide ácido de grão médio, claro</dd></div><div class="spec"><dt>Idade</dt><dd>Variscano · <b>~300 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Batólito do Sistema Central (bacia de Madrid)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Região de Madrid — Castela, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>40.417° N, 3.703° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~510 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>—</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/granito-branco.jpg" data-cap="Granito claro, leuocratico, do tipo do &#x27;granito branco cristal&#x27; do Sistema Central." data-author="Kevin M. Gill" data-lic="CC BY 4.0" data-page="https://commons.wikimedia.org/wiki/File:Granodiorite_(55186050453).jpg"><span class="kindtag">Tipo de rocha</span><img src="img/granito-branco.jpg" alt="Granito claro, leuocratico, do tipo do &#x27;granito branco cristal&#x27; do Sistema Central." loading="lazy"><figcaption>Granito claro, leuocratico, do tipo do &#x27;granito branco cristal&#x27; do Sistema Central.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Granular, holocristalina, fanerítica; grão médio, côr clara e uniforme.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz, feldspato potássico, plagioclase, moscovita, biotita escassa.</p>
+      <div class="minihead">Processo geológico</div><p>Granito do Sistema Central ibérico, formado no mesmo intervalo variscano. AEscassez de máficos traduz-se na brancura da pedra.</p>
+      <div class="minihead">Aplicação no templo</div><p>Pequenos detalhes da galeria do coro da nave central.</p>
+      <div class="usobox"><strong>Em resumo —</strong> Detalhe de escala mínima: o granito branco entra apenas onde o olhar apanha a luz de cima.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-yazd" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 06 / 13</div>
+      <h3>Pórfiro vermelho de Yazd</h3>
+      <p class="rocha">Ignimbrita riolítica — Roca magmática volcânica piroclástica, textura pseudoporfirítica e eutaxítica</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea piroclástica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Roca magmática volcânica piroclástica, textura pseudoporfirítica e eutaxítica</dd></div><div class="spec"><dt>Idade</dt><dd>Paleogénico (Eoceno–Oligoceno) · <b>~50–35 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Domo de Yazd, centro-oeste do Irão (Irã central)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Yazd, Irão</dd></div><div class="spec"><dt>Coordenadas</dt><dd>31.897° N, 56.315° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~4 600 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,66 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>1 940 kg/cm² · 190 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/yazd-porfiro.jpg" data-cap="Porfiro vermelho: fenocristais de &gt;2 mm numa matriz mais fina. O do templo e uma ignimbrita riolitica." data-author="This picture belongs to Xavier Caré. Please credit : Xavier Caré / Wikimedia Commons / CC-BY-SA. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms. I&#x27;d appreciate if you could let me know about it or mail me ( xavier.carepm.me) if you want to use this picture out of the Wikimedia project scope." data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Bagolino_-_Sito_Romanterra_-_Porfido.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/yazd-porfiro.jpg" alt="Porfiro vermelho: fenocristais de &gt;2 mm numa matriz mais fina. O do templo e uma ignimbrit" loading="lazy"><figcaption>Porfiro vermelho: fenocristais de &gt;2 mm numa matriz mais fina. O do templo e uma ignimbrita riolitica.</figcaption></figure><figure class="shot" data-full="img/yazd-porfiro-2.jpg" data-cap="Porfiro vermelho em afloramento, com cimento silicoso a contrastar com a massa rosada." data-author="Fjordfisch" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Porphyrlehrpfad_-_Eiche_deren_Wurzeln_um_das_rote_Porphyrgestein_gewachsen_sind_-_Geopark_Porphyrland_-_Sachsen.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/yazd-porfiro-2.jpg" alt="Porfiro vermelho em afloramento, com cimento silicoso a contrastar com a massa rosada." loading="lazy"><figcaption>Porfiro vermelho em afloramento, com cimento silicoso a contrastar com a massa rosada.</figcaption></figure><figure class="shot" data-full="img/yazd-ignimbrita.jpg" data-cap="Fiammes numa ignimbrita: as &#x27;chamas&#x27; achatadas pelo fluxo piroclastico — a assinatura da textura eutaxitica." data-author="Graeme Churchard (GOC53) https://www.flickr.com/people/graeme/" data-lic="CC BY 2.0" data-page="https://commons.wikimedia.org/wiki/File:Fiamme_in_Ignimbrite_at_Side_Pike_in_Cumbria.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/yazd-ignimbrita.jpg" alt="Fiammes numa ignimbrita: as &#x27;chamas&#x27; achatadas pelo fluxo piroclastico — a assinatura da t" loading="lazy"><figcaption>Fiammes numa ignimbrita: as &#x27;chamas&#x27; achatadas pelo fluxo piroclastico — a assinatura da textura eutaxitica.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Pseudoporfirítica: fenocristais visíveis à vista desarmada (maios de 2 mm) envoltos numa matriz vítreo-cristalina com bandado de cor e composição diferentes (microestrutura eutaxítica). Na matriz fluidal observam-se cristalizações esferulíticas.</p>
+      <div class="minihead">Composição mineralógica</div><p>Quartz (fenocristais esqueléticos, por corrosão), plagioclase, feldspato potássico, biotita.</p>
+      <div class="minihead">Processo geológico</div><p>Deposição de um fluxo piroclástico denso e quente: os cristais achatam-se e alinham-se na direção do fluxo, o que produz a textura eutaxítica. A cor vermelha vem da oxidação do ferro.</p>
+      <div class="minihead">Aplicação no templo</div><p>As quatro maiores colunas do templo — dodecaagonais de Ø 2,10 m — no transepto; altar maior e escadas do presbitério projectados.</p>
+      <div class="usobox"><strong>Em resumo —</strong> A rocha mais resistente de todo o templo e a mais distante. A simetria é notável: as colunas que carregam mais são as de rocha mais antiga e mais dura — 190 MPa.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-bagnoregio" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 07 / 13</div>
+      <h3>Basalto de Bagnoregio</h3>
+      <p class="rocha">Basanita com leucita — Roca magmática vulcânica efusiva, textura microlítica com fenocristais de leucita</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea efusiva</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Roca magmática vulcânica efusiva, textura microlítica com fenocristais de leucita</dd></div><div class="spec"><dt>Idade</dt><dd>Quaternário, Pleistoceno · <b>~0,5–1 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Campo vulcânico dos Vulsinos (Montefiascone), junto ao lago de Bolsena</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Bagnoregio / Montefiascone, Lázio — Itália</dd></div><div class="spec"><dt>Coordenadas</dt><dd>42.633° N, 12.300° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~1 000 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,23 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>841 kg/cm² · 83 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/bagnoregio-basanita.jpg" data-cap="Basanita em superficie de quebra. Rochas vulcanicas efusivas basicas, com feldespatoides." data-author="Chmee2" data-lic="CC BY 3.0" data-page="https://commons.wikimedia.org/wiki/File:Basanite_in_Geopark_on_Albertov.JPG"><span class="kindtag">Tipo de rocha</span><img src="img/bagnoregio-basanita.jpg" alt="Basanita em superficie de quebra. Rochas vulcanicas efusivas basicas, com feldespatoides." loading="lazy"><figcaption>Basanita em superficie de quebra. Rochas vulcanicas efusivas basicas, com feldespatoides.</figcaption></figure><figure class="shot" data-full="img/bagnoregio-leucita.jpg" data-cap="Leucita em lamina fina (nicols cruzados): o mineral que identifica a basanita com leucita de Bagnoregio." data-author="Ringwoodit" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Leucit_XPL.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/bagnoregio-leucita.jpg" alt="Leucita em lamina fina (nicols cruzados): o mineral que identifica a basanita com leucita " loading="lazy"><figcaption>Leucita em lamina fina (nicols cruzados): o mineral que identifica a basanita com leucita de Bagnoregio.</figcaption></figure><figure class="shot" data-full="img/bagnoregio-bolsena.jpg" data-cap="O lago de Bolsena, junto a Montefiascone: o vulcanismo cuaternario que forneceu o basalto das 8 colunas decagonais." data-author="No machine-readable author provided. Cproesser~commonswiki assumed (based on copyright claims)." data-lic="Public domain" data-page="https://commons.wikimedia.org/wiki/File:Lago_di_Bolsena.jpg"><span class="kindtag">Local de origem</span><img src="img/bagnoregio-bolsena.jpg" alt="O lago de Bolsena, junto a Montefiascone: o vulcanismo cuaternario que forneceu o basalto " loading="lazy"><figcaption>O lago de Bolsena, junto a Montefiascone: o vulcanismo cuaternario que forneceu o basalto das 8 colunas decagonais.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Microlítica, com fenocristais abundantes de feldspatóides (leucita), piroxena (augite), biotita e plagioclase; micróritos de plagioclase em forma de agulha na matriz.</p>
+      <div class="minihead">Composição mineralógica</div><p>Leucita (feldspatóide), augite, biotita, plagioclase.</p>
+      <div class="minihead">Processo geológico</div><p>Extrusão de magma básico, muito fluido, que percorreu dezenas de km antes de solidificar. A presença de leucita em vez de plagiooclaseBoundingField ou sóbite exige pressão total elevada — é o que define a basanita.</p>
+      <div class="minihead">Aplicação no templo</div><p>As 8 colunas decagonais de Ø 1,75 m (fustes e capitéis) — cinzento quase negro, em contraste deliberado com o granito e o pórfiro.</p>
+      <div class="usobox"><strong>Em resumo —</strong> A rocha mais leve e mais «recente» do templo, com a densidade mais baixa de todas (2,23 g/cm³). A geologia quaternária da Itália serve de moldura ao cruz.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-castellfollit" data-fam="igneia">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 08 / 13</div>
+      <h3>Basalto de Castellfollit de la Roca</h3>
+      <p class="rocha">Basanita — Roca magmática vulcânica efusiva, textura porfirítica</p>
+    </div>
+    <span class="badge b-igneia">Roca ígnea efusiva</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Roca magmática vulcânica efusiva, textura porfirítica</dd></div><div class="spec"><dt>Idade</dt><dd>Quaternário, Pleistoceno · <b>~217 ka e ~192 ka</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Campo vulcânico da Garrotxa (Zona Volcânica Catalana)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Castellfollit de la Roca, Garrotxa — Catalunya, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>42.070° N, 2.650° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~95 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,70 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>1 237 kg/cm² · 121 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/castellfollit-colunas.jpg" data-cap="As duas coladas basalticas de Castellfollit de la Roca (~217 ka e ~192 ka) e a sua disjuncao columnar." data-author="Imaginepascal" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Castellfollit_Castle_and_Geologic_Formation.jpg"><span class="kindtag">Local de origem</span><img src="img/castellfollit-colunas.jpg" alt="As duas coladas basalticas de Castellfollit de la Roca (~217 ka e ~192 ka) e a sua disjunc" loading="lazy"><figcaption>As duas coladas basalticas de Castellfollit de la Roca (~217 ka e ~192 ka) e a sua disjuncao columnar.</figcaption></figure><figure class="shot" data-full="img/castellfollit-rochedo.jpg" data-cap="Rochedo de basalto de Castellfollit de la Roca, com as colunas prismaticas visiveis." data-author="Lluís Marià Vidal i Carreras" data-lic="Public domain" data-page="https://commons.wikimedia.org/wiki/File:Roques_de_Castellfollit_de_la_Roca.jpeg"><span class="kindtag">Local de origem</span><img src="img/castellfollit-rochedo.jpg" alt="Rochedo de basalto de Castellfollit de la Roca, com as colunas prismaticas visiveis." loading="lazy"><figcaption>Rochedo de basalto de Castellfollit de la Roca, com as colunas prismaticas visiveis.</figcaption></figure><figure class="shot" data-full="img/castellfollit-cidade.jpg" data-cap="O pueblo assenta sobre o rochedo de basalto; a torre da igreja marca o topo." data-author="Anthiro 57" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Castellfollit_de_la_Roca_La_Garrotxa.jpg"><span class="kindtag">Local de origem</span><img src="img/castellfollit-cidade.jpg" alt="O pueblo assenta sobre o rochedo de basalto; a torre da igreja marca o topo." loading="lazy"><figcaption>O pueblo assenta sobre o rochedo de basalto; a torre da igreja marca o topo.</figcaption></figure><figure class="shot" data-full="img/garrotxa-fageda.jpg" data-cap="La Fageda d&#x27;en Jordà: a &#x27;fogueira&#x27; de basalto com colunas hexagonais, no coracao da Garrotxa." data-author="Alan Mattingly" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Tossol_Fageda.jpg"><span class="kindtag">Local de origem</span><img src="img/garrotxa-fageda.jpg" alt="La Fageda d&#x27;en Jordà: a &#x27;fogueira&#x27; de basalto com colunas hexagonais, no coracao da Garrot" loading="lazy"><figcaption>La Fageda d&#x27;en Jordà: a &#x27;fogueira&#x27; de basalto com colunas hexagonais, no coracao da Garrotxa.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Porfirítica, com matriz microlítica e fenocristais de plagioclase, piroxena e olivina.</p>
+      <div class="minihead">Composição mineralógica</div><p>Plagioclase, piroxena, olivina.</p>
+      <div class="minihead">Processo geológico</div><p>Duas coladas de lava muito fluida, vindas dos vulcões de Batet e de Begudà, que ocuparam os vales do Fluvià e do Turonell. Entre elas depositou-se um paleosolo com argilas e piroclastos — um intervalo de 25 000 anos de calma. A contração da lava ao arrefecer produziu a disjunção prismática.</p>
+      <div class="minihead">Aplicação no templo</div><p>Cornija do pórtico (nártex) da Façana da Paixão.</p>
+      <div class="usobox"><strong>Em resumo —</strong> O basalto catalão mais recente: as duas coladas que formam o rochedo do povoado foram datadas por K-Ar e arqueomagnetismo. A Garrotxa é, hoje, a prova de que a fronteira do fogo ainda não está longe.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-calafell" data-fam="sedimentar">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 09 / 13</div>
+      <h3>Pedra de Calafell (ou de Vilafranca)</h3>
+      <p class="rocha">Calcário fossilífero — biomicrita — Calcário bioclástico com foraminíferos numa matriz micrítica muito porosa</p>
+    </div>
+    <span class="badge b-sedimentar">Roca sedimentar</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Calcário bioclástico com foraminíferos numa matriz micrítica muito porosa</dd></div><div class="spec"><dt>Idade</dt><dd>Miocénico · <b>~15–10 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Molasse do Baix Penedès (bacia do Penedès)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Calafell / Vilafranca del Penedès — Catalunya</dd></div><div class="spec"><dt>Coordenadas</dt><dd>41.250° N, 1.380° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~45 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>72 kg/cm² · 7 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/calafell-biomicrita.jpg" data-cap="Calcario bioclastico: grao e matriz com fragments de conchas e foraminiferos." data-author="Alan Mattingly" data-lic="CC0" data-page="https://commons.wikimedia.org/wiki/File:Affleurement_mioc%C3%A8ne,_Vernet-les-Bains.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/calafell-biomicrita.jpg" alt="Calcario bioclastico: grao e matriz com fragments de conchas e foraminiferos." loading="lazy"><figcaption>Calcario bioclastico: grao e matriz com fragments de conchas e foraminiferos.</figcaption></figure><figure class="shot" data-full="img/calafell-local.jpg" data-cap="Calafell, no Baix Penedès, de onde vem a pedra usada nos interiores do templo." data-author="Albert SN" data-lic="Public domain" data-page="https://commons.wikimedia.org/wiki/File:Estaci%C3%B3_de_Segur_de_Calafell.JPG"><span class="kindtag">Local de origem</span><img src="img/calafell-local.jpg" alt="Calafell, no Baix Penedès, de onde vem a pedra usada nos interiores do templo." loading="lazy"><figcaption>Calafell, no Baix Penedès, de onde vem a pedra usada nos interiores do templo.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Matriz micrítica muito porosa com foraminíferos, algas e fragmentos de moluscos.</p>
+      <div class="minihead">Composição mineralógica</div><p>Praticamente calcite pura.</p>
+      <div class="minihead">Processo geológico</div><p>Depósito marinho shallow no Miocénico, com uma fauna bentónica abundante que se fossiliza como o clasto da rocha. A porosidade elevada da matriz explica a sua fragilidade.</p>
+      <div class="minihead">Aplicação no templo</div><p>Apenas interiores e de fino talhamento: claustros, interiores das fachadas, abside, trifório, claustro do Roser.</p>
+      <div class="usobox"><strong>Em resumo —</strong> A mais fraca de todas as pedras do templo — 7 MPa, treze vezes menos que o pórfiro de Yazd. A resistência não determina o uso: é a pedra mais doce de talhar, e por isso esculpe-se nela.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-floresta" data-fam="sedimentar">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 10 / 13</div>
+      <h3>Pedra de la Floresta</h3>
+      <p class="rocha">Calc-arenito dolomítico — Arenito calcário dolomítico</p>
+    </div>
+    <span class="badge b-sedimentar">Roca sedimentar</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Arenito calcário dolomítico</dd></div><div class="spec"><dt>Idade</dt><dd>Oligocénico · <b>~34–23 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Molasse da bacia de les Garrigues (Penedès–Garrigues)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>La Floresta, les Garrigues — Catalunya, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>41.670° N, 0.800° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~80 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>2,35 g/cm³</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>548 kg/cm² · 54 MPa</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/floresta-calcarenito.jpg" data-cap="Calc-arenito fossilifero: grao fino, rico em carbonatos, facil de esculpir — a pedra dos anjos e das figuras da Paixao." data-author="Xemenendura" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Calcarenita_fosil%C3%ADfera.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/floresta-calcarenito.jpg" alt="Calc-arenito fossilifero: grao fino, rico em carbonatos, facil de esculpir — a pedra dos a" loading="lazy"><figcaption>Calc-arenito fossilifero: grao fino, rico em carbonatos, facil de esculpir — a pedra dos anjos e das figuras da Paixao.</figcaption></figure><figure class="shot" data-full="img/floresta-local.jpg" data-cap="Les Garrigues: comarca de la pedra de Floresta, entre el Segre i el Llobregat." data-author="Joan Carles Hinojosa" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Canal_Segarra-Garrigues.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/floresta-local.jpg" alt="Les Garrigues: comarca de la pedra de Floresta, entre el Segre i el Llobregat." loading="lazy"><figcaption>Les Garrigues: comarca de la pedra de Floresta, entre el Segre i el Llobregat.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Arenito de grão muito fino; mais de 80% de carbonatos sob a forma de agregados micríticos e microesparíticos, calcite espátrica e formas romboédricas de dolomita, com quartzo fino (0,1 mm).</p>
+      <div class="minihead">Composição mineralógica</div><p>Calcite e dolomita (>80%), quartzo equigranular fino, micas.</p>
+      <div class="minihead">Processo geológico</div><p>Areia calcária depositada num ambiente deltaico lacustre/marinho oligocénico, com cimento carbonatado. A baixa dureza e a granulometria fina tornam a rocha ideal para a escultura.</p>
+      <div class="minihead">Aplicação no templo</div><p>Obras escultóricas: anjos músicos da Façana do Nascimento (Etzuro Sotoo) e mais de cem figuras da Façana da Paixão (Josep M. Subirachs).</p>
+      <div class="usobox"><strong>Em resumo —</strong> A pedra dos escultores. Gaudí não a escolheu por resistência — escolheu-a porque se talha como madeira. Subirachs voltaria a ela 60 anos depois.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-figueres" data-fam="sedimentar">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 11 / 13</div>
+      <h3>Pedra de Figueres</h3>
+      <p class="rocha">Calcário bioclástico recristalizado — Calcário recristalizado, localmente «mármore de Figueres»</p>
+    </div>
+    <span class="badge b-sedimentar">Roca sedimentar</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Calcário recristalizado, localmente «mármore de Figueres»</dd></div><div class="spec"><dt>Idade</dt><dd>Paleogénico–Neogénico · <b>~40–25 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Bacia do Alt Empordà</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Figueres, Alt Empordà — Catalunya, Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>42.267° N, 2.960° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~140 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>—</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/figueres-calcario.jpg" data-cap="Calcario bioclastico recristalizado, do tipo do &#x27;marmore de Figueres&#x27; (Alt Emporda)." data-author="Fernando Losada Rodríguez" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Caliza_de_crinoides.2_-_Fosil.JPG"><span class="kindtag">Tipo de rocha</span><img src="img/figueres-calcario.jpg" alt="Calcario bioclastico recristalizado, do tipo do &#x27;marmore de Figueres&#x27; (Alt Emporda)." loading="lazy"><figcaption>Calcario bioclastico recristalizado, do tipo do &#x27;marmore de Figueres&#x27; (Alt Emporda).</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Bioclástica, recristalizada, com passagens de calcite bem cristalizada.</p>
+      <div class="minihead">Composição mineralógica</div><p>Calcite, ocasionalmente dolomita.</p>
+      <div class="minihead">Processo geológico</div><p>Calcário marinho com fauna bentónica, sujeito a recristalização. Sem explotações atuais conhecidas — a pedra é obtida por demolição.</p>
+      <div class="minihead">Aplicação no templo</div><p>Paramentos da escada da cripta.</p>
+      <div class="usobox"><strong>Em resumo —</strong> Uma pedra de estrutura modesta que só aparece num lugar — a escada da cripta, onde ovisitante entra no templo pelo ponto mais baixo e mais escuro.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-macael" data-fam="metamorfica">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 12 / 13</div>
+      <h3>Mármore de Macael</h3>
+      <p class="rocha">Mármore calcítico — Mármore calcítico, textura mesocristalina homeoblástica, com foliação metamórfica</p>
+    </div>
+    <span class="badge b-metamorfica">Roca metamórfica</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Mármore calcítico, textura mesocristalina homeoblástica, com foliação metamórfica</dd></div><div class="spec"><dt>Idade</dt><dd>Protólito triásico; metamorfismo alpino · <b>protólito ~230–200 Ma · metamorfismo ~18–15 Ma</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Formação de Las Casas, Complexo Nevado-Filábride (Cordilheira Bética)</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Macael, Sierra de los Filabres, Almería — Espanha</dd></div><div class="spec"><dt>Coordenadas</dt><dd>37.100° N, 2.700° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~520 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>—</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/macael-marmore.jpg" data-cap="Marmore de Macael nas cores branco, amarelo e cinzento. A rocha e &gt;99% calcite, com foliacao metamorfica." data-author="Focus Piedra" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Focuspiedrapremiosmacael.jpg"><span class="kindtag">Local de origem</span><img src="img/macael-marmore.jpg" alt="Marmore de Macael nas cores branco, amarelo e cinzento. A rocha e &gt;99% calcite, com foliac" loading="lazy"><figcaption>Marmore de Macael nas cores branco, amarelo e cinzento. A rocha e &gt;99% calcite, com foliacao metamorfica.</figcaption></figure><figure class="shot" data-full="img/macael-marmore-branco.jpg" data-cap="O marmore branco de Macael, tal como se apresenta nas pedreiras." data-author="Roquex" data-lic="CC0" data-page="https://commons.wikimedia.org/wiki/File:Macael1.jpg"><span class="kindtag">Local de origem</span><img src="img/macael-marmore-branco.jpg" alt="O marmore branco de Macael, tal como se apresenta nas pedreiras." loading="lazy"><figcaption>O marmore branco de Macael, tal como se apresenta nas pedreiras.</figcaption></figure><figure class="shot" data-full="img/macael-local.jpg" data-cap="Macael, na vertente norte da Sierra de los Filabres (Almeria)." data-author="Roquex" data-lic="CC0" data-page="https://commons.wikimedia.org/wiki/File:Macael,_en_Almer%C3%ADa_(Espa%C3%B1a).jpg"><span class="kindtag">Local de origem</span><img src="img/macael-local.jpg" alt="Macael, na vertente norte da Sierra de los Filabres (Almeria)." loading="lazy"><figcaption>Macael, na vertente norte da Sierra de los Filabres (Almeria).</figcaption></figure><figure class="shot" data-full="img/macael-monumento.jpg" data-cap="Monumento em marmore de Macael, com o veio cinzento do bandamento metamorfico visivel." data-author="ManuelSB" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Monumento_a_la_Virgen_del_Rosario,_Patrona_y_Alcaldesa_Perp%C3%A9tua_y_Honor%C3%ADfica_de_Macael.jpg"><span class="kindtag">Local de origem</span><img src="img/macael-monumento.jpg" alt="Monumento em marmore de Macael, com o veio cinzento do bandamento metamorfico visivel." loading="lazy"><figcaption>Monumento em marmore de Macael, com o veio cinzento do bandamento metamorfico visivel.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Homeoblástica mesocristalina, grão médio de ~600 µm (até 2 mm), com cristais orientados paralelamente à foliação metamórfica. Bandado cinzento por lechos mais ricos em silicatos.</p>
+      <div class="minihead">Composição mineralógica</div><p>Calcite (>99%); secundários: plagioclase, quartz e mica.</p>
+      <div class="minihead">Processo geológico</div><p>Um calcário quase puro do Triásico, soterrado e metamorfizado durante a orogénese alpina sob alta pressão e baixa temperatura (P ≈ 1,8 GPa; T ≈ 500–610 °C). A recristalização é total: o que era rocha sedimentar virou mármore.</p>
+      <div class="minihead">Aplicação no templo</div><p>O pelicano e os pombos do cipreste da Façana do Nascimento (Joan Pastor).</p>
+      <div class="usobox"><strong>Em resumo —</strong> A única rocha metamórfica do conjunto e a que tem a história mais longa: 230 Ma de sedimento, 15 Ma de metamorfismo, uma passagem pelos Alpes e a serração em Almería antes de viajar até Barcelona.</div>
+    </div>
+  </div>
+</article>
+<article class="stone" id="pedra-travertino" data-fam="sedimentar">
+  <div class="stone-head">
+    <div>
+      <div class="idx">PEDRA 13 / 13</div>
+      <h3>Travertino (Bagni di Tivoli)</h3>
+      <p class="rocha">Travertino — Carbonato continental clástico, com laminacao e porosidade</p>
+    </div>
+    <span class="badge b-sedimentar">Roca sedimentar</span>
+  </div>
+  <div class="stone-body">
+    <dl class="specs"><div class="spec"><dt>Classificação</dt><dd>Carbonato continental clástico, com laminacao e porosidade</dd></div><div class="spec"><dt>Idade</dt><dd>Quaternário, Pleistoceno · <b>~125 ka</b></dd></div><div class="spec"><dt>Ambiente de origem</dt><dd>Depósito deEmitter de carbonato, junto às termas de Tivoli</dd></div><div class="spec"><dt>Pedreira / local</dt><dd>Bagni di Tivoli, Lácio — Itália</dd></div><div class="spec"><dt>Coordenadas</dt><dd>41.960° N, 12.797° E</dd></div><div class="spec"><dt>Distância ao templo</dt><dd>~1 050 km do templo</dd></div><div class="spec"><dt>Densidade</dt><dd>—</dd></div><div class="spec"><dt>Resistência à compressão</dt><dd>—</dd></div></dl>
+    <div class="shots"><figure class="shot" data-full="img/travertino-rocha.jpg" data-cap="Travertino: carbonato continental com laminacao e porosidade, formado por aguas minerais." data-author="Agnese Galeffi" data-lic="CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Affioramento_di_travertino_01.jpg"><span class="kindtag">Tipo de rocha</span><img src="img/travertino-rocha.jpg" alt="Travertino: carbonato continental com laminacao e porosidade, formado por aguas minerais." loading="lazy"><figcaption>Travertino: carbonato continental com laminacao e porosidade, formado por aguas minerais.</figcaption></figure><figure class="shot" data-full="img/travertino-detalhe.jpg" data-cap="Detalhe do travertino junto a cascata — a estrutura laminada e os poros dao-lhe o aspecto caracteristico." data-author="Enfo" data-lic="CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:251_Detall_del_travert%C3%AD_vora_el_salt_d%27aigua_del_Tenes,_Sant_Miquel_del_Fai.JPG"><span class="kindtag">Tipo de rocha</span><img src="img/travertino-detalhe.jpg" alt="Detalhe do travertino junto a cascata — a estrutura laminada e os poros dao-lhe o aspecto " loading="lazy"><figcaption>Detalhe do travertino junto a cascata — a estrutura laminada e os poros dao-lhe o aspecto caracteristico.</figcaption></figure><figure class="shot" data-full="img/travertino-tivoli.jpg" data-cap="Bagni di Tivoli, as termas romanas cuja pedra foi usada na Faca da Paixao." data-author="Ra Boe" data-lic="CC BY-SA 3.0 de" data-page="https://commons.wikimedia.org/wiki/File:Tivoli_(Italy)_2007by-RaBoe.jpg"><span class="kindtag">Local de origem</span><img src="img/travertino-tivoli.jpg" alt="Bagni di Tivoli, as termas romanas cuja pedra foi usada na Faca da Paixao." loading="lazy"><figcaption>Bagni di Tivoli, as termas romanas cuja pedra foi usada na Faca da Paixao.</figcaption></figure></div>
+    <div class="prose">
+      <div class="minihead">Textura</div><p>Carbonato com estrutura laminada e porosidade irregular; os vazios correspondem a canais de água e a restos vegetais.</p>
+      <div class="minihead">Composição mineralógica</div><p>Calcite, com poroidade e material vegetal fosilizado.</p>
+      <div class="minihead">Processo geológico</div><p>Precipitação de carbonato de cálcio a partir de águas minerais que percolam rochas calcárias, à temperatura ambiente. É uma rocha química, não detrítica — e por isso tão moderna.</p>
+      <div class="minihead">Aplicação no templo</div><p>Elementos escultóricos da Façana da Paixão (Subirachs).</p>
+      <div class="usobox"><strong>Em resumo —</strong> A rocha mais nova do templo: ~125 000 anos. Numa basílica de 145 anos, uma pedra com cem mil anos é simultaneamente a mais antiga em termos relativos de uso — o que confirma que «antigo» é uma questão de escala, não de substance.</div>
+    </div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section id="tempo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">05 · Tempo</div>
+      <h2>Uma linha do tempo geológica</h2>
+      <p class="lead">A escala geológica é o que a tabela esconde. Colocando as pedras na mesma
+        régua temporal, o templo deixa de ser um edifício e passa a ser um corte geológico.</p>
+    </div>
+    <div class="tl"><svg viewBox="0 0 1180 341" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linha do tempo geologica das pedras da Sagrada Familia"><defs><linearGradient id="tlg" x1="0" x2="1"><stop offset="0" stop-color="#B4552F"/><stop offset="0.42" stop-color="#8A6A3D"/><stop offset="1" stop-color="#1F4D3A"/></linearGradient><linearGradient id="tlg2" x1="0" x2="1"><stop offset="0" stop-color="#1F4D3A"/><stop offset="1" stop-color="#6FAE8F"/></linearGradient></defs><line x1="60" y1="78" x2="852" y2="78" stroke="url(#tlg)" stroke-width="3"/><line x1="866" y1="78" x2="1140" y2="78" stroke="url(#tlg2)" stroke-width="3"/><path d="M852,72 l7,6 l-7,6 l7,6 l-7,6" fill="none" stroke="#9C9488" stroke-width="1.5"/><line x1="85.9" y1="73" x2="85.9" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="85.9" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">300 Ma</text><line x1="215.1" y1="73" x2="215.1" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="215.1" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">250 Ma</text><line x1="344.4" y1="73" x2="344.4" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="344.4" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">200 Ma</text><line x1="473.7" y1="73" x2="473.7" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="473.7" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">150 Ma</text><line x1="603.0" y1="73" x2="603.0" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="603.0" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">100 Ma</text><line x1="732.3" y1="73" x2="732.3" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="732.3" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">50 Ma</text><line x1="796.9" y1="73" x2="796.9" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="796.9" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">25 Ma</text><line x1="835.7" y1="73" x2="835.7" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="835.7" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">10 Ma</text><line x1="848.7" y1="73" x2="848.7" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="848.7" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">5 Ma</text><line x1="859.0" y1="73" x2="859.0" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="859.0" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">1 Ma</text><line x1="859.0" y1="73" x2="859.0" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="859.0" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">1 Ma</text><line x1="952.7" y1="73" x2="952.7" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="952.7" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">100 ka</text><line x1="1046.3" y1="73" x2="1046.3" y2="83" stroke="#B9B2A6" stroke-width="1.4"/><text x="1046.3" y="100" font-size="11" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">10 ka</text><text x="1140" y="100" font-size="11" fill="#8A8378" text-anchor="end" font-family="system-ui,sans-serif">hoje</text><text x="46" y="82" font-size="11" fill="#8A8378" text-anchor="end" font-family="system-ui,sans-serif">Ma</text><line x1="124.6" y1="78" x2="124.6" y2="120.0" stroke="#7A3E2E" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="124.6" cy="78" r="5.5" fill="#7A3E2E" stroke="#FAF8F4" stroke-width="1.8"/><text x="132.6" y="130.0" font-size="12.3" fill="#33302B" text-anchor="start" font-family="system-ui,sans-serif">Granitos variscanos</text><text x="132.6" y="143.0" font-size="10.6" fill="#8A8378" text-anchor="start" font-family="system-ui,sans-serif">~285 Ma</text><line x1="305.6" y1="78" x2="305.6" y2="143.0" stroke="#5B6B7C" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="305.6" cy="78" r="5.5" fill="#5B6B7C" stroke="#FAF8F4" stroke-width="1.8"/><text x="305.6" y="153.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Marmore de Macael (protolito)</text><text x="305.6" y="166.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~215 Ma</text><line x1="747.8" y1="78" x2="747.8" y2="120.0" stroke="#B4552F" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="747.8" cy="78" r="5.5" fill="#B4552F" stroke="#FAF8F4" stroke-width="1.8"/><text x="747.8" y="130.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Porfiro vermelho de Yazd</text><text x="747.8" y="143.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~44 Ma</text><line x1="786.6" y1="78" x2="786.6" y2="143.0" stroke="#8A6A3D" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="786.6" cy="78" r="5.5" fill="#8A6A3D" stroke="#FAF8F4" stroke-width="1.8"/><text x="786.6" y="153.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Pedra de la Floresta</text><text x="786.6" y="166.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~29 Ma</text><line x1="820.2" y1="78" x2="820.2" y2="166.0" stroke="#5B6B7C" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="820.2" cy="78" r="5.5" fill="#5B6B7C" stroke="#FAF8F4" stroke-width="1.8"/><text x="820.2" y="176.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Metamorfismo alpino (Macael)</text><text x="820.2" y="189.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~16 Ma</text><line x1="828.0" y1="78" x2="828.0" y2="189.0" stroke="#8A6A3D" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="828.0" cy="78" r="5.5" fill="#8A6A3D" stroke="#FAF8F4" stroke-width="1.8"/><text x="828.0" y="199.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Pedra de Montjuic</text><text x="828.0" y="212.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~13 Ma</text><line x1="830.6" y1="78" x2="830.6" y2="212.0" stroke="#8A6A3D" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="830.6" cy="78" r="5.5" fill="#8A6A3D" stroke="#FAF8F4" stroke-width="1.8"/><text x="830.6" y="222.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Pedra de Calafell</text><text x="830.6" y="235.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~12 Ma</text><line x1="873.5" y1="78" x2="873.5" y2="235.0" stroke="#B4552F" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="873.5" cy="78" r="5.5" fill="#B4552F" stroke="#FAF8F4" stroke-width="1.8"/><text x="873.5" y="245.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Basalto de Bagnoregio</text><text x="873.5" y="258.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~700 ka</text><line x1="922.5" y1="78" x2="922.5" y2="258.0" stroke="#B4552F" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="922.5" cy="78" r="5.5" fill="#B4552F" stroke="#FAF8F4" stroke-width="1.8"/><text x="922.5" y="268.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Basalto de Castellfollit</text><text x="922.5" y="281.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~210 ka</text><line x1="943.6" y1="78" x2="943.6" y2="120.0" stroke="#8A6A3D" stroke-width="1.2" stroke-dasharray="2 3" opacity=".6"/><circle cx="943.6" cy="78" r="5.5" fill="#8A6A3D" stroke="#FAF8F4" stroke-width="1.8"/><text x="943.6" y="130.0" font-size="12.3" fill="#33302B" text-anchor="middle" font-family="system-ui,sans-serif">Travertino de Tivoli</text><text x="943.6" y="143.0" font-size="10.6" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">~125 ka</text><text x="60" y="329" font-size="11.5" fill="#8A8378" font-family="system-ui,sans-serif">Escala com quebra: linear de 300 a 1 Ma; logaritmica (de 1 Ma a 1 ka) no segmento final, onde se concentram as rochas vulcanicas mais recentes. As pedras do templo cobrem quase 300 000 000 de anos.</text></svg></div>
+  </div>
+</section>
+
+<section id="tabela">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">06 · Síntese</div>
+      <h2>Tabela comparativa</h2>
+      <p class="lead">Ordenada como no itinerário petrográfico do Museu de Geologia de Barcelona (2005).</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Pedra</th><th>Rochas</th><th>Idade</th><th>Procedência</th>
+          <th>Distância</th><th>Resistência</th></tr></thead>
+        <tbody><tr><td><span class="fdot" style="background:#8A6A3D"></span><b>Pedra de Montjuïc</b></td><td>Arenito silicoso (silicificado)</td><td>~15–11 Ma</td><td>Montjuïc, Barcelona — Catalunya, Espanha</td><td>0–6 km do templo</td><td>978 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Granito de Òrrius — «ull de serp»</b></td><td>Granodiorita–tonalita</td><td>~300–270 Ma</td><td>Òrrius i Llinars del Vallès, Vallès Oriental — Catalunya</td><td>~25 km do templo</td><td>1 559 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Granito do Tarn (Sidobre)</b></td><td>Granito leucocrático quartzoso</td><td>~300 Ma</td><td>Sidobre, Tarn — Occitânia, França</td><td>~500 km do templo</td><td>1 865 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Granito de Fráguas</b></td><td>Granito biotítico bicolor</td><td>~300 Ma</td><td>Fráguas, Lugo — Galiza, Espanha</td><td>~700 km do templo</td><td>—</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Granito branco cristal (Madrid)</b></td><td>Granito leucocrático</td><td>~300 Ma</td><td>Região de Madrid — Castela, Espanha</td><td>~510 km do templo</td><td>—</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Pórfiro vermelho de Yazd</b></td><td>Ignimbrita riolítica</td><td>~50–35 Ma</td><td>Yazd, Irão</td><td>~4 600 km do templo</td><td>1 940 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Basalto de Bagnoregio</b></td><td>Basanita com leucita</td><td>~0,5–1 Ma</td><td>Bagnoregio / Montefiascone, Lázio — Itália</td><td>~1 000 km do templo</td><td>841 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#B4552F"></span><b>Basalto de Castellfollit de la Roca</b></td><td>Basanita</td><td>~217 ka e ~192 ka</td><td>Castellfollit de la Roca, Garrotxa — Catalunya, Espanha</td><td>~95 km do templo</td><td>1 237 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#8A6A3D"></span><b>Pedra de Calafell (ou de Vilafranca)</b></td><td>Calcário fossilífero — biomicrita</td><td>~15–10 Ma</td><td>Calafell / Vilafranca del Penedès — Catalunya</td><td>~45 km do templo</td><td>72 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#8A6A3D"></span><b>Pedra de la Floresta</b></td><td>Calc-arenito dolomítico</td><td>~34–23 Ma</td><td>La Floresta, les Garrigues — Catalunya, Espanha</td><td>~80 km do templo</td><td>548 kg/cm²</td></tr><tr><td><span class="fdot" style="background:#8A6A3D"></span><b>Pedra de Figueres</b></td><td>Calcário bioclástico recristalizado</td><td>~40–25 Ma</td><td>Figueres, Alt Empordà — Catalunya, Espanha</td><td>~140 km do templo</td><td>—</td></tr><tr><td><span class="fdot" style="background:#5B6B7C"></span><b>Mármore de Macael</b></td><td>Mármore calcítico</td><td>protólito ~230–200 Ma · metamorfismo ~18–15 Ma</td><td>Macael, Sierra de los Filabres, Almería — Espanha</td><td>~520 km do templo</td><td>—</td></tr><tr><td><span class="fdot" style="background:#8A6A3D"></span><b>Travertino (Bagni di Tivoli)</b></td><td>Travertino</td><td>~125 ka</td><td>Bagni di Tivoli, Lácio — Itália</td><td>~1 050 km do templo</td><td>—</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="resistencia">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">07 · Comportamento mecânico</div>
+      <h2>Resistência à compressão</h2>
+      <p class="lead">O gráfico mostra a dispersão: de 7 MPa (pedra de Calafell, a mais frágil)
+        a 190 MPa (pórfiro de Yazd, a mais resistente). <strong>E mostra que a resistência
+        não determina o uso.</strong></p>
+    </div>
+    <div class="tl"><svg viewBox="0 0 1180 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Resistencia a compressao das pedras do templo"><line x1="300.0" y1="30" x2="300.0" y2="318.0" stroke="#E7E1D7" stroke-width="1"/><text x="300.0" y="20" font-size="10.5" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">0</text><line x1="497.5" y1="30" x2="497.5" y2="318.0" stroke="#E7E1D7" stroke-width="1"/><text x="497.5" y="20" font-size="10.5" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">50</text><line x1="695.0" y1="30" x2="695.0" y2="318.0" stroke="#E7E1D7" stroke-width="1"/><text x="695.0" y="20" font-size="10.5" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">100</text><line x1="892.5" y1="30" x2="892.5" y2="318.0" stroke="#E7E1D7" stroke-width="1"/><text x="892.5" y="20" font-size="10.5" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">150</text><line x1="1090.0" y1="30" x2="1090.0" y2="318.0" stroke="#E7E1D7" stroke-width="1"/><text x="1090.0" y="20" font-size="10.5" fill="#8A8378" text-anchor="middle" font-family="system-ui,sans-serif">200</text><text x="1090" y="20" font-size="10.5" fill="#8A8378" text-anchor="end" font-family="system-ui,sans-serif">MPa</text><text x="288" y="52" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Pedra de Calafell</text><rect x="300" y="38" width="27.7" height="19" rx="3" fill="#8A6A3D" opacity=".88"/><text x="335.6" y="52" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">7 MPa</text><text x="288" y="86" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Pedra de la Floresta</text><rect x="300" y="72" width="213.3" height="19" rx="3" fill="#8A6A3D" opacity=".88"/><text x="521.3" y="86" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">54 MPa</text><text x="288" y="120" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Basalto de Bagnoregio</text><rect x="300" y="106" width="327.8" height="19" rx="3" fill="#B4552F" opacity=".88"/><text x="635.8" y="120" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">83 MPa</text><text x="288" y="154" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Pedra de Montjuïc</text><rect x="300" y="140" width="379.2" height="19" rx="3" fill="#8A6A3D" opacity=".88"/><text x="687.2" y="154" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">96 MPa</text><text x="288" y="188" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Basalto de Castellfollit de la Roca</text><rect x="300" y="174" width="477.9" height="19" rx="3" fill="#B4552F" opacity=".88"/><text x="786.0" y="188" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">121 MPa</text><text x="288" y="222" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Granito de Òrrius — «ull de serp»</text><rect x="300" y="208" width="604.4" height="19" rx="3" fill="#B4552F" opacity=".88"/><text x="912.4" y="222" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">153 MPa</text><text x="288" y="256" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Granito do Tarn</text><rect x="300" y="242" width="722.9" height="19" rx="3" fill="#B4552F" opacity=".88"/><text x="1030.8" y="256" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">183 MPa</text><text x="288" y="290" font-size="13" fill="#33302B" text-anchor="end" font-family="system-ui,sans-serif">Pórfiro vermelho de Yazd</text><rect x="300" y="276" width="750.5" height="19" rx="3" fill="#B4552F" opacity=".88"/><text x="1058.5" y="290" font-size="12" fill="#5A554E" font-family="system-ui,sans-serif">190 MPa</text><text x="300" y="336" font-size="11.5" fill="#8A8378" font-family="system-ui,sans-serif">Resistencia a compressao uniaxial (kg/cm2 convertidos a MPa). Fonte: itinerario petrografico do Museu de Geologia de Barcelona (2005).</text></svg></div>
+  </div>
+</section>
+
+<section id="temas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">08 · Leitura crítica</div>
+      <h2>Cinco temas para desenvolver</h2>
+      <p class="lead">A descrição é o ponto de partida. O trabalho ganha corpo na leitura
+        crítica — na pergunta sobre <em>porquê</em> e <em>para quê</em>.</p>
+    </div>
+    <div class="tema"><div class="n">01</div><div><h3>A pedra como recurso finito e a lógica do reciclado</h3><p>O fecho das pedreiras de Montjuïc em 1957 transformou a cidade num arquivo de pedra: a nova matéria-prima do templo passa a ser o <strong>desmonte de edifícios demolidos</strong>. Em 2018 a Junta Constructora passou a fornecer arenito da pedreira de Withnell (Brinscall, Lancashire). Há aqui um argumento arquitetónico e ético forte — a construção como canibalismo de arquivo urbana.</p></div></div><div class="tema"><div class="n">02</div><div><h3>A geologia local como paleta</h3><p>Gaudí não escolheu poryra apologia: o arenito de Montjuïc está em toda a Barcelona românica, gótica, neoclássica e modernista. A matéria-prima do templo é a mesma que construiu a cidade — a basílica é a <strong>última e mais ambiciosa pedreira de Montjuïc</strong>. A geologia da cidade determina a paleta, e a paleta determina a forma.</p></div></div><div class="tema"><div class="n">03</div><div><h3>Desacoplamento entre resistência mecânica e valor expressivo</h3><p>A pedra de Calafell tem 7 MPa; o pórfiro de Yazd tem 190 MPa. E no entanto é a mais frágil que esculpe a Paixão, e a mais resistente que sustenta as maiores colunas. <strong>A resistência não determina o uso</strong> — o gesto e a leitura determinam. Em sentido inverso, as colunas mais carregadas do templo são as de rocha mais antiga e mais dura.</p></div></div><div class="tema"><div class="n">04</div><div><h3>Geopolítica da pedra e a fixação do gosto</h3><p>As roças que expressam a Catalunha (granito do Vallès, arenito de Montjuïc) e as que a <strong>substituem</strong> por indisponibilidade (pórfiro iraniano, basalto italiano, travertino de Tivoli) revelam como o gosto é fixado enquanto a matéria é renegociada. Em 1998, o estilista Subirachs regressou ao mármore e ao travertino: a linguagem estável, a matéria variável.</p></div></div><div class="tema"><div class="n">05</div><div><h3>Metamorfismo como metáfora de memória</h3><p>O mármore de Macael é uma roca que mudou de forma há 15 Ma, sob pressão, e que hoje está num templo de 15 m. Triásico → metamorfismo alpino → extração em Almería → Barcelona: a história da pedra é, em si, uma narrativa de transformação do paisaje.</p></div></div>
+  </div>
+</section>
+
+<section id="campo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">09 · Trabalho de campo</div>
+      <h2>Onde ir ver isto</h2>
+      <p class="lead">Sete destinos que cobrem rochas, petrografia e logística da obra —
+        todos acessíveis e todos com conteúdo geológico demonstrável.</p>
+    </div>
+    <div class="campo"><div class="campo-item"><div class="place">Museu de Geologia (Parc de la Ciutadella)<span>Barcelona</span></div><p>Expõe a <strong>coleção petrografia do Templo</strong> (amostras e lâminas finas, registos 14.366–14.380),Overlap criada para a exposição <em>Pedres del Temple, roques dels Temps</em> (Any Gaudí, 2002). Diante da fachada do Museu Martorell, uma <strong>exposição ao ar livre de 133 blocos</strong> de pedra ornamental catalã (1907–1929): grés de Montjuïc, granito «ull de serp», basalto de Amer.</p><div><span class="pill">Inclui</span></div></div><div class="campo-item"><div class="place">Geomuseu da UPC<span>Barcelona</span></div><p>Montra com as <strong>10 rochas mais usadas</strong> na Sagrada Família, com lâminas finas iluminadas à mão: pórfir de Yazd, travertino de Tivoli, grés de Sant Vicenç de Castellet, grés de Montjuïc, basalto de Bagnoregio, granito de Òrrius, mármore branco de Macael, grés de la Floresta.</p><div><span class="pill">Inclui</span></div></div><div class="campo-item"><div class="place">Les Borges Blanques<span>Les Garrigues</span></div><p>Centro logístico da Sagrada Família, onde se armazena o stock de pedra. Liga a geologia da pedreira ao ciclo logístico da obra — e mostra a escala real do consumo: <strong>~150 000 m³ (~345 milhões de kg)</strong> de material.</p><div><span class="pill">Exterior</span></div></div><div class="campo-item"><div class="place">Pedreira romana de Montjuïc<span>Barcelona</span></div><p>Os vestígios de corte mais antigos da cidade (La Foixarda, Teatre Grec). Observar os cortes do Miocénico e os fósseis — numulites, ourins, algas — que aparecem nos paramentos das fachadas de Barcelona.</p><div><span class="pill">Exterior</span></div></div><div class="campo-item"><div class="place">Castellfollit de la Roca<span>Garrotxa</span></div><p>O rochedo de duas coladas basálticas (~217 e ~192 ka), com disjunção prismática, e a Fageda d'en Jordà nas proximidades. A melhor observação de campo da Zona Volcânica Catalana.</p><div><span class="pill">Exterior</span></div></div><div class="campo-item"><div class="place">Sidobre<span>Tarn, França</span></div><p>A planície granítica que forneceu as colunas do presbitério: blocos em bola, o Roc de l'Oie e o Peyro Clabado. Percurso pedonível de 4–8 km.</p><div><span class="pill">Exterior</span></div></div><div class="campo-item"><div class="place">Macael<span>Almería, Espanha</span></div><p>A pedreira de mármore branco e o Centro de Interpretação do Mármole. Permite observar a passagem de calcário triásico a mármore recristalizado e a bandagem cinzenta do metamorfismo.</p><div><span class="pill">Exterior</span></div></div></div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">10 · Método</div>
+      <h2>Como se estuda uma pedra de construção</h2>
+      <p class="lead">Protocolo de campo e de laboratório aplicável a qualquer das pedras
+        deste conjunto.</p>
+    </div>
+    <div class="campo"><div class="campo-item"><div class="place">Identificação macroscópica</div><p>Cor, grão, brilho, dureza de Mohs,Reaction com ácido (calcite faz efervescência a 10% HCl) e observação das descontinuidades.</p><div></div></div><div class="campo-item"><div class="place">Análise quantitativa</div><p>Densidade por picnómetro, absorção de água por imersão e resistência à compressão uniaxial, comparada com os valores do itinerário petrográfico do Museu de Geologia.</p><div></div></div><div class="campo-item"><div class="place">Petrografia</div><p>Lâmina fina de 30 µm, observada ao microscópio polarizador em luz paralela e em nicols cruzados, para descrever textura e composição mineral.</p><div></div></div><div class="campo-item"><div class="place">Leitura do contexto</div><p>Cartografia geológica (MAGNA, IGME) e correlação estratigráfica: onde a rocha está na coluna, e que isso diz sobre a sua idade.</p><div></div></div></div>
+
+    <div class="sec-head" style="margin-top:56px">
+      <div class="kicker">11 · Notas e limitações</div>
+      <h2>Sobre este trabalho</h2>
+    </div>
+    <div class="card prose">
+      <p><strong>Fontes das imagens.</strong> Todas as fotografias provêm da Wikimedia Commons
+        e são reproduzidas sob as licenças indicadas em cada legenda (CC BY, CC BY-SA, CC0 ou
+        domínio público). A atribuição completa consta na secção de créditos, no rodapé.</p>
+      <p><strong>Fotografia exacta versus fotografia representativa.</strong> Quando existe
+        fotografia do local de extracção ou da rocha na obra, a legenda está assinalada
+        <em>«Local de origem»</em>. Quando só foi possível obter uma fotografia do
+        <strong>tipo de rocha</strong> — por não haver imagens do material comercial específico
+        em regime de direitos livres — a legenda está assinalada <em>«Tipo de rocha»</em>,
+        e o texto da mesma explica a equivalência petrográfica. Os dados de densidade e
+        resistência provêm do itinerário petrográfico do Museu de Geologia de Barcelona (2005);
+        as idades absolutas, de fontes geocronológicas regionais (veja bibliografia).</p>
+      <p><strong>Dados de campo.</strong> As coordenadas e as distâncias ao templo são
+        aproximadas, calculadas a partir da pedreira de referência de cada pedra e do
+        centro do templo (41.4036° N, 2.1744° E).</p>
+      <p><strong>Limites.</strong> As datações radiométricas das rochas vulcânicas da
+        Garrotxa foram revistas em 2025 e reviram a ordem de grandeza do vulcanismo.
+        As idades das rochas sedimentares referem-se ao protólito e não preservam
+        a alteração diagenética posterior.</p>      <p><strong>Reprodução.</strong> As imagens podem ser obtidas de novo com
+        <code>python make_sf_images.py</code>; o site com <code>python make_sf_site.py</code>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="biblio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">12 · Bibliografia</div>
+      <h2>Fontes</h2>
+    </div>
+    <ul class="biblio"><li><strong>Masriera, A.; Caminal, A.; Navarro, R.; Planella, V.; Samper, J. A. (2005)</strong> «Les roques del Temple de la Sagrada Família. Un itinerari petrogràfic a través dels seus elements arquitectònics i ornamentals». <em>Treballs del Museu de Geologia de Barcelona, 13, 5–41. — <strong>Fonte central</strong>: tabela completa de densidade e resistência à compressão.</em></li><li><strong>Gómez Gras, C. et al. (2020)</strong> «Petrographic Markers for Archaeometric Identification of Montjuïc Sandstone, the Flagship Stone of Barcelona (NE Spain)». <em>Minerals, 10(2), 154. — silicificação e identificação arqueométrica do arenito de Montjuïc.</em></li><li><strong>Michard, A. et al. (2020)</strong> «Fracturing and Near-Surface Diagenesis of a Silicified Miocene Deltaic Sequence: The Montjuïc Hill (Barcelona)». <em>Minerals, 10(2), 135. — o papel da diagénese próxima à superfície na silicificação.</em></li><li><strong>Roca, S. (2000)</strong> <em>Pedres de Montjuïc. Els Materials de Construcció del Castell de Montjuïc</em>. <em>Institut d'Estudis Catalans. — a maior PEDreira da história urbana.</em></li><li><strong>Faura, J. et al. (1999)</strong> <em>El miocè de la muntanya de Montjuïc: estratigrafia, sedimentologia, petrologia i diagènesi</em>. <em>Tese doctoral, Universitat Autònoma de Barcelona.</em></li><li><strong>IDAEA-CSIC et al. (2025)</strong> «Las erupciones volcánicas en la Garrotxa son más recientes de lo esperado». <em>Quaternary Science Advances. — novas datações Ar-Ar das coladas de Castellfollit.</em></li><li><strong>Junta Constructora del Temple de la Sagrada Família (2025)</strong> «La pedra de Montjuïc: de l'extracció al reciclatge». <em>Blog oficial da basílica — logística atual, centro de Les Borges Blanques e reciclagem de pedra.</em></li><li><strong>Construnews (2025)</strong> «De la cantera al reciclaje: la piedra de Montjuïc en la Sagrada Família». <em>Volumes consumidos, número de pedreiras e tipos de pedra utilizados.</em></li><li><strong>IGME / MAGNA</strong> Cartografia geológica de España, escala 1:50 000. <em>Folhas 257 (Olot), 389 (Tàrrega), 393–394, 421 (Barcelona), 447 (Vilanova i la Geltrú).</em></li></ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h4>As pedras da Sagrada Família</h4>
+    <p style="max-width:640px;margin:0 0 26px;color:#C3D5CB">
+      Trabalho de geologia para o curso de Arquitetura. Conteúdo redigido em português europeu,
+      a partir da bibliografia científica indicada. Imagens da Wikimedia Commons, sob as
+      licenças assinaladas em cada legenda.
+    </p>
+    <p style="font-size:12.5px;color:#8FAE9F;margin:0 0 12px">
+      <strong style="color:#C3D5CB">Atribuição das imagens</strong> — autor, licença (com ligação)
+      e endereço original de cada ficheiro. Todas as fotografias foram redimensionadas
+      para 1024 px de largura, o que constitui a única alteração efetuada.
+    </p>
+    <div class="credits"><div><a href="https://commons.wikimedia.org/wiki/File:Distribution_of_varisican_orogenies.png" target="_blank" rel="noopener">ibution of varisican orogenies.png</a> — Jo weber, Public domain</div><div><a href="https://commons.wikimedia.org/wiki/File:237_Ma_orogenies_reconstruction.jpg" target="_blank" rel="noopener">a orogenies reconstruction.jpg</a> — Salsero35, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Carretera_de_les_Aig%C3%BCes_P1230333.JPG" target="_blank" rel="noopener">tera de les Aigües P1230333.JPG</a> — Pere López, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Pedrera_romana_de_Montju%C3%AFc_1.jpg" target="_blank" rel="noopener">ra romana de Montjuïc 1.jpg</a> — Carme Miró i Alaix (Servei d&#x27;Arqueologia de Barcelona), <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Spain.Catalonia.Barcelona.Vista.Panoramica.Montjuic.jpg" target="_blank" rel="noopener">.Catalonia.Barcelona.Vista.Panoramica.Montjuic.jpg</a> — Year of the dragon, <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Barcelona_-_La_Sagrada_Fam%C3%ADlia_-_Nativity_Fa%C3%A7ade_IV.jpg" target="_blank" rel="noopener">lona - La Sagrada Família - Nativity Façade IV.jpg</a> — Txllxt TxllxT, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia_Nativity_Fa%C3%A7ade_from_Ground,_Barcelona,_2023.jpg" target="_blank" rel="noopener">da Família Nativity Façade from Ground, Barcelona, 2023.jpg</a> — Julian Lupyan, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Sagrada_familia_interior_columna_00001.jpg" target="_blank" rel="noopener">da familia interior columna 00001.jpg</a> — Poniol60, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Sagrada_Familia_columns.jpg" target="_blank" rel="noopener">da Familia columns.jpg</a> — Gianluca Miscione, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Barcelona_Sagrada_Familia_interior_01.jpg" target="_blank" rel="noopener">lona Sagrada Familia interior 01.jpg</a> — Ad Meskens, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia._Interior_nau.jpg" target="_blank" rel="noopener">da Família. Interior nau.jpg</a> — Sagrada Família (oficial), <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Detalle_da_Fachada_da_Caridade._Sagrada_Familia._Barcelona_B41.jpg" target="_blank" rel="noopener">le da Fachada da Caridade. Sagrada Familia. Barcelona B41.jpg</a> — Lmbuga, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:200708-1_qtzarem_silicacemt_50x_PPL.jpg" target="_blank" rel="noopener">8-1 qtzarem silicacemt 50x PPL.jpg</a> — Michael C. Rygel, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:2010_08_04_Prebischtor_Felsentor_DSCI0644.JPG" target="_blank" rel="noopener">08 04 Prebischtor Felsentor DSCI0644.JPG</a> — Dr. Karl-Heinz Hochhaus, <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Sagrada_Familia_March_2015-14a.jpg" target="_blank" rel="noopener">da Familia March 2015-14a.jpg</a> — Alvesgaspar, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Granodiorite_(55185004332).jpg" target="_blank" rel="noopener">diorite (55185004332).jpg</a> — Kevin M. Gill, <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:380_Granite_porphiro%C3%AFde_gris_Ploun%C3%A9vez-Quintin.JPG" target="_blank" rel="noopener">ranite porphiroïde gris Plounévez-Quintin.JPG</a> — Moreau.henri, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Serra_de_Vilana_P1230317.JPG" target="_blank" rel="noopener"> de Vilana P1230317.JPG</a> — Pere López, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Le_Roc_de_l%27Oie.jpg" target="_blank" rel="noopener">c de l&#x27;Oie.jpg</a> — Tarnais81600, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Le_chapeau_de_Napol%C3%A9on_-_Sidobre.JPG" target="_blank" rel="noopener">apeau de Napoléon - Sidobre.JPG</a> — Villard Marc, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Les_trois_fromages_-_Sidobre.JPG" target="_blank" rel="noopener">rois fromages - Sidobre.JPG</a> — Villard Marc, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:2017_San_Vicente_do_Mar._O_Grove._Galiza-3.jpg" target="_blank" rel="noopener">San Vicente do Mar. O Grove. Galiza-3.jpg</a> — Luis Miguel Bugallo Sánchez (Lmbuga), <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Granodiorite_(55186050453).jpg" target="_blank" rel="noopener">diorite (55186050453).jpg</a> — Kevin M. Gill, <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Bagolino_-_Sito_Romanterra_-_Porfido.jpg" target="_blank" rel="noopener">ino - Sito Romanterra - Porfido.jpg</a> — This picture belongs to Xavier Caré. Please credit : Xavier Caré / Wikimedia Commons / …, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Porphyrlehrpfad_-_Eiche_deren_Wurzeln_um_das_rote_Porphyrgestein_gewachsen_sind_-_Geopark_Porphyrland_-_Sachsen.jpg" target="_blank" rel="noopener">yrlehrpfad - Eiche deren Wurzeln um das rote Porphyrgestein gewa</a> — Fjordfisch, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Fiamme_in_Ignimbrite_at_Side_Pike_in_Cumbria.jpg" target="_blank" rel="noopener">e in Ignimbrite at Side Pike in Cumbria.jpg</a> — Graeme Churchard (GOC53) https://www.flickr.com/people/graeme/, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Basanite_in_Geopark_on_Albertov.JPG" target="_blank" rel="noopener">ite in Geopark on Albertov.JPG</a> — Chmee2, <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Leucit_XPL.jpg" target="_blank" rel="noopener">t XPL.jpg</a> — Ringwoodit, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Lago_di_Bolsena.jpg" target="_blank" rel="noopener">di Bolsena.jpg</a> — No machine-readable author provided. Cproesser~commonswiki assumed (based on copyright …, Public domain</div><div><a href="https://commons.wikimedia.org/wiki/File:Castellfollit_Castle_and_Geologic_Formation.jpg" target="_blank" rel="noopener">llfollit Castle and Geologic Formation.jpg</a> — Imaginepascal, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Roques_de_Castellfollit_de_la_Roca.jpeg" target="_blank" rel="noopener">s de Castellfollit de la Roca.jpeg</a> — Lluís Marià Vidal i Carreras, Public domain</div><div><a href="https://commons.wikimedia.org/wiki/File:Castellfollit_de_la_Roca_La_Garrotxa.jpg" target="_blank" rel="noopener">llfollit de la Roca La Garrotxa.jpg</a> — Anthiro 57, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Tossol_Fageda.jpg" target="_blank" rel="noopener">l Fageda.jpg</a> — Alan Mattingly, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Affleurement_mioc%C3%A8ne,_Vernet-les-Bains.jpg" target="_blank" rel="noopener">urement miocène, Vernet-les-Bains.jpg</a> — Alan Mattingly, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Estaci%C3%B3_de_Segur_de_Calafell.JPG" target="_blank" rel="noopener">ió de Segur de Calafell.JPG</a> — Albert SN, Public domain</div><div><a href="https://commons.wikimedia.org/wiki/File:Calcarenita_fosil%C3%ADfera.jpg" target="_blank" rel="noopener">renita fosilífera.jpg</a> — Xemenendura, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Canal_Segarra-Garrigues.jpg" target="_blank" rel="noopener"> Segarra-Garrigues.jpg</a> — Joan Carles Hinojosa, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Focuspiedrapremiosmacael.jpg" target="_blank" rel="noopener">piedrapremiosmacael.jpg</a> — Focus Piedra, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Macael1.jpg" target="_blank" rel="noopener">l1.jpg</a> — Roquex, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Macael,_en_Almer%C3%ADa_(Espa%C3%B1a).jpg" target="_blank" rel="noopener">l, en Almería (España).jpg</a> — Roquex, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Monumento_a_la_Virgen_del_Rosario,_Patrona_y_Alcaldesa_Perp%C3%A9tua_y_Honor%C3%ADfica_de_Macael.jpg" target="_blank" rel="noopener">ento a la Virgen del Rosario, Patrona y Alcaldesa Perpétua y Hon</a> — ManuelSB, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Affioramento_di_travertino_01.jpg" target="_blank" rel="noopener">ramento di travertino 01.jpg</a> — Agnese Galeffi, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:251_Detall_del_travert%C3%AD_vora_el_salt_d%27aigua_del_Tenes,_Sant_Miquel_del_Fai.JPG" target="_blank" rel="noopener">etall del travertí vora el salt d&#x27;aigua del Tenes, Sant Miquel d</a> — Enfo, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Tivoli_(Italy)_2007by-RaBoe.jpg" target="_blank" rel="noopener">i 01.jpg</a> — Ra Boe, <a href="https://creativecommons.org/licenses/by-sa/3.0/de/deed.en" target="_blank" rel="noopener">CC BY-SA 3.0 de</a></div><div><a href="https://commons.wikimedia.org/wiki/File:Caliza_de_crinoides.2_-_Fosil.JPG" target="_blank" rel="noopener">a de crinoides.2 - Fosil.JPG</a> — Fernando Losada Rodríguez, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div></div>
+    <p style="font-size:12.5px;color:#7E9D8E;margin:26px 0 0;border-top:1px solid rgba(255,255,255,.14);padding-top:18px">
+      Geometria dos dados: Museu de Geologia de Barcelona · IGME/MAGNA · IDAEA-CSIC (2025) ·
+      Junta Constructora del Temple de la Sagrada Família. Gerado a 2026-10-21.<br><br>
+      <strong style="color:#C3D5CB">Licença deste site</strong> — <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+      Uma vez que incorpora imagens sob licenças CC BY-SA, esta obra é disponibilizada
+      sob a mesma licença.
+    </p>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="Voltar ao topo">&uarr;</button>
+
+<div class="lb" id="lb">
+  <button class="x" aria-label="Fechar">&times;</button>
+  <button class="nav2 prev" aria-label="Anterior">&#8249;</button>
+  <button class="nav2 next" aria-label="Seguinte">&#8250;</button>
+  <div style="max-width:100%">
+    <img src="" alt="">
+    <div class="cap"></div>
+  </div>
+  <div class="p"></div>
+</div>
+
+<script>
+(function(){
+  // scroll spy
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function spy(){
+    var y=window.scrollY+120,cur=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i;});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur);});
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+
+  // filtro de pedras
+  var btns=[].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    var f=b.dataset.f;
+    document.querySelectorAll('.stone').forEach(function(s){
+      s.style.display=(f==='all'||s.dataset.fam===f)?'':'none';
+    });
+  });});
+
+  // lightbox
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),
+      cap=lb.querySelector('.cap'),pos=lb.querySelector('.p');
+  var allShots=[].slice.call(document.querySelectorAll('.shot'));
+  var cur=0;
+  function visible(){
+    return allShots.filter(function(s){
+      var st=s.closest('.stone');
+      return !st || st.style.display!=='none';
+    });
+  }
+  function open(i){
+    var list=visible();
+    if(!list.length)return;
+    cur=i;var s=list[i],c=s.dataset.cap||'',
+        a=s.dataset.author||'',l=s.dataset.lic||'',u=s.dataset.page||'';
+    lbi.src=s.dataset.full;lbi.alt=c;
+    cap.innerHTML=c+(u?'<br><a href="'+u+'" target="_blank" rel="noopener">'+a+' — '+l+'</a>':(a?'<br>'+a+' — '+l:''));
+    pos.textContent=(i+1)+' / '+list.length;
+    lb.classList.add('show');document.body.style.overflow='hidden';
+  }
+  function close(){lb.classList.remove('show');document.body.style.overflow='';}
+  allShots.forEach(function(s){
+    s.addEventListener('click',function(){
+      var list=visible(),i=list.indexOf(s);
+      open(i<0?0:i);
+    });
+  });
+  lb.querySelector('.x').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  lb.querySelector('.prev').addEventListener('click',function(e){
+    e.stopPropagation();var l=visible();open((cur-1+l.length)%l.length);});
+  lb.querySelector('.next').addEventListener('click',function(e){
+    e.stopPropagation();var l=visible();open((cur+1)%l.length);});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('show'))return;
+    var l=visible();
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')open((cur-1+l.length)%l.length);
+    if(e.key==='ArrowRight')open((cur+1)%l.length);
+  });
+
+  // topo
+  var top=document.getElementById('totop');
+  window.addEventListener('scroll',function(){top.classList.toggle('show',window.scrollY>700);});
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
